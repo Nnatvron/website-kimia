@@ -1,1203 +1,6078 @@
-
 <!DOCTYPE html>
+
 <html lang="id">
+
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <meta name="description" content="Website pembelajaran Pendidikan Kimia tentang unsur, materi, dan praktikum kimia.">
+
   <title>Chemistry Lab | Pendidikan Kimia</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+/* =========================================
+
+   CHEMISTRY LAB — PENDIDIKAN KIMIA
+
+   Palette: Rhubarb, Coral Essence, Pastel Pink
+
+   ========================================= */
+
+
+
+:root {
+
+  --rhubarb: #ce4b66;
+
+  --rhubarb-dark: #a93650;
+
+  --coral: #ff7f73;
+
+  --pastel-pink: #f8d7e2;
+
+  --pink-light: #fff1f4;
+
+  --pink-pale: #fff8fa;
+
+  --purple-light: #f6edff;
+
+  --text: #452c35;
+
+  --text-soft: #806b74;
+
+  --white: #ffffff;
+
+  --border: #f0dce2;
+
+  --shadow: 0 12px 35px rgba(126, 56, 78, 0.08);
+
+  --radius: 18px;
+
+  --font-body: "DM Sans", sans-serif;
+
+  --font-heading: "Playfair Display", serif;
+
+}
+
+
+
+* {
+
+  box-sizing: border-box;
+
+  margin: 0;
+
+  padding: 0;
+
+}
+
+
+
+html {
+
+  scroll-behavior: smooth;
+
+  scroll-padding-top: 90px;
+
+}
+
+
+
+body {
+
+  font-family: var(--font-body);
+
+  color: var(--text);
+
+  background: var(--white);
+
+  font-size: 14px;
+
+  line-height: 1.7;
+
+  overflow-x: hidden;
+
+}
+
+
+
+img {
+
+  display: block;
+
+  max-width: 100%;
+
+  width: 100%;
+
+}
+
+
+
+a {
+
+  color: inherit;
+
+  text-decoration: none;
+
+}
+
+
+
+button,
+
+input,
+
+select,
+
+textarea {
+
+  font: inherit;
+
+}
+
+
+
+button,
+
+a,
+
+summary {
+
+  -webkit-tap-highlight-color: transparent;
+
+}
+
+
+
+button:focus-visible,
+
+a:focus-visible,
+
+summary:focus-visible,
+
+input:focus-visible,
+
+select:focus-visible,
+
+textarea:focus-visible {
+
+  outline: 3px solid rgba(206, 75, 102, 0.45);
+
+  outline-offset: 4px;
+
+}
+
+
+
+::selection {
+
+  background: var(--pastel-pink);
+
+  color: var(--rhubarb-dark);
+
+}
+
+
+
+.container {
+
+  width: min(1120px, 88%);
+
+  margin: 0 auto;
+
+}
+
+
+
+.section {
+
+  padding: 100px 0;
+
+}
+
+
+
+.section-label {
+
+  display: inline-block;
+
+  margin-bottom: 13px;
+
+  color: var(--rhubarb);
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+}
+
+
+
+h1,
+
+h2,
+
+h3 {
+
+  line-height: 1.25;
+
+}
+
+
+
+h1,
+
+h2 {
+
+  font-family: var(--font-heading);
+
+  font-weight: 600;
+
+}
+
+
+
+h2 {
+
+  font-size: clamp(30px, 4vw, 43px);
+
+  letter-spacing: -0.8px;
+
+}
+
+
+
+h2 span,
+
+h1 span {
+
+  color: var(--rhubarb);
+
+}
+
+
+
+/* NAVBAR */
+
+
+
+.site-header {
+
+  position: sticky;
+
+  top: 0;
+
+  z-index: 100;
+
+  background: rgba(255, 255, 255, 0.92);
+
+  border-bottom: 1px solid rgba(240, 220, 226, 0.75);
+
+  backdrop-filter: blur(16px);
+
+  -webkit-backdrop-filter: blur(16px);
+
+}
+
+
+
+.navbar {
+
+  min-height: 78px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 24px;
+
+}
+
+
+
+.logo {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  flex-shrink: 0;
+
+  color: var(--text);
+
+  font-weight: 700;
+
+  font-size: 16px;
+
+}
+
+
+
+.logo-icon {
+
+  width: 34px;
+
+  height: 34px;
+
+  display: grid;
+
+  place-items: center;
+
+  color: white;
+
+  background: var(--rhubarb);
+
+  border-radius: 11px;
+
+  font-family: var(--font-heading);
+
+  font-size: 21px;
+
+  box-shadow: 0 5px 12px rgba(206, 75, 102, 0.2);
+
+}
+
+
+
+.logo-light {
+
+  color: var(--rhubarb);
+
+}
+
+
+
+.nav-links {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 24px;
+
+}
+
+
+
+.nav-links a {
+
+  color: var(--text-soft);
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  transition: color 0.2s ease;
+
+}
+
+
+
+.nav-links a:hover {
+
+  color: var(--rhubarb);
+
+}
+
+
+
+.nav-button {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 10px 16px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 999px;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  transition: 0.25s ease;
+
+}
+
+
+
+.nav-button:hover {
+
+  color: white;
+
+  background: var(--rhubarb);
+
+  border-color: var(--rhubarb);
+
+}
+
+
+
+/* HERO */
+
+
+
+.hero {
+
+  position: relative;
+
+  padding: 82px 0 88px;
+
+  overflow: hidden;
+
+  background:
+
+    radial-gradient(ellipse at 5% 10%, #fff0f4 0%, transparent 45%),
+
+    linear-gradient(115deg, #fffdfd 0%, #fff7f9 100%);
+
+}
+
+
+
+.hero-bg {
+
+  position: absolute;
+
+  top: -100px;
+
+  right: -180px;
+
+  width: 530px;
+
+  height: 530px;
+
+  border: 1px solid rgba(206, 75, 102, 0.09);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+}
+
+
+
+.hero-bg::before,
+
+.hero-bg::after {
+
+  content: "";
+
+  position: absolute;
+
+  border: 1px solid rgba(206, 75, 102, 0.08);
+
+  border-radius: 50%;
+
+}
+
+
+
+.hero-bg::before {
+
+  inset: 45px;
+
+}
+
+
+
+.hero-bg::after {
+
+  inset: 100px;
+
+}
+
+
+
+.hero-layout {
+
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns: 1fr 0.92fr;
+
+  align-items: center;
+
+  gap: 75px;
+
+}
+
+
+
+.hero-content {
+
+  position: relative;
+
+  z-index: 2;
+
+}
+
+
+
+.eyebrow {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  margin-bottom: 22px;
+
+  padding: 8px 12px;
+
+  border: 1px solid #f2d7df;
+
+  border-radius: 999px;
+
+  color: var(--rhubarb-dark);
+
+  background: rgba(255, 255, 255, 0.75);
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.2px;
+
+}
+
+
+
+.eyebrow-dot {
+
+  width: 7px;
+
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: var(--coral);
+
+  box-shadow: 0 0 0 4px rgba(255, 127, 115, 0.14);
+
+}
+
+
+
+.hero h1 {
+
+  margin-bottom: 23px;
+
+  font-size: clamp(42px, 5.1vw, 65px);
+
+  letter-spacing: -1.8px;
+
+  line-height: 1.15;
+
+}
+
+
+
+.hero-description {
+
+  max-width: 465px;
+
+  color: var(--text-soft);
+
+  font-size: 14px;
+
+  line-height: 1.95;
+
+}
+
+
+
+.hero-actions {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  align-items: center;
+
+  gap: 13px;
+
+  margin-top: 30px;
+
+}
+
+
+
+.button {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 15px;
+
+  min-height: 47px;
+
+  padding: 0 20px;
+
+  border: 1px solid transparent;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  transition:
+
+    transform 0.2s ease,
+
+    box-shadow 0.2s ease,
+
+    background 0.2s ease;
+
+}
+
+
+
+.button:hover {
+
+  transform: translateY(-2px);
+
+}
+
+
+
+.button-primary {
+
+  color: white;
+
+  background: var(--rhubarb);
+
+  box-shadow: 0 8px 20px rgba(206, 75, 102, 0.2);
+
+}
+
+
+
+.button-primary:hover {
+
+  background: var(--rhubarb-dark);
+
+  box-shadow: 0 10px 24px rgba(206, 75, 102, 0.26);
+
+}
+
+
+
+.button-secondary {
+
+  color: var(--text);
+
+  border-color: var(--border);
+
+  background: rgba(255, 255, 255, 0.7);
+
+}
+
+
+
+.button-secondary:hover {
+
+  border-color: var(--rhubarb);
+
+  color: var(--rhubarb);
+
+}
+
+
+
+.hero-note {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-top: 35px;
+
+  color: #987e88;
+
+  font-size: 11px;
+
+}
+
+
+
+.note-line {
+
+  width: 29px;
+
+  height: 1px;
+
+  background: var(--coral);
+
+}
+
+
+
+.hero-visual {
+
+  position: relative;
+
+  min-width: 0;
+
+  padding: 12px 8px 18px;
+
+}
+
+
+
+.hero-image-frame {
+
+  position: relative;
+
+  z-index: 1;
+
+  height: 420px;
+
+  overflow: hidden;
+
+  border: 8px solid rgba(255, 255, 255, 0.8);
+
+  border-radius: 160px 160px 24px 24px;
+
+  background: var(--pastel-pink);
+
+  box-shadow: 0 22px 55px rgba(99, 44, 63, 0.13);
+
+}
+
+
+
+.hero-image-frame img {
+
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: transform 0.7s ease;
+
+}
+
+
+
+.hero-image-frame:hover img {
+
+  transform: scale(1.04);
+
+}
+
+
+
+.floating-card {
+
+  position: absolute;
+
+  z-index: 3;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 13px 16px;
+
+  border: 1px solid rgba(255, 255, 255, 0.9);
+
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.91);
+
+  box-shadow: 0 12px 32px rgba(85, 42, 58, 0.12);
+
+  backdrop-filter: blur(12px);
+
+}
+
+
+
+.floating-card-top {
+
+  top: 75px;
+
+  left: -45px;
+
+}
+
+
+
+.floating-card-bottom {
+
+  right: -30px;
+
+  bottom: 55px;
+
+}
+
+
+
+.floating-symbol {
+
+  color: var(--rhubarb);
+
+  font-family: var(--font-heading);
+
+  font-size: 27px;
+
+  font-weight: 700;
+
+}
+
+
+
+.floating-icon {
+
+  display: grid;
+
+  place-items: center;
+
+  width: 35px;
+
+  height: 35px;
+
+  border-radius: 10px;
+
+  color: var(--rhubarb);
+
+  background: var(--pink-light);
+
+  font-size: 20px;
+
+}
+
+
+
+.floating-card strong,
+
+.floating-card small {
+
+  display: block;
+
+}
+
+
+
+.floating-card strong {
+
+  font-size: 11px;
+
+}
+
+
+
+.floating-card small {
+
+  margin-top: 2px;
+
+  color: var(--text-soft);
+
+  font-size: 9px;
+
+}
+
+
+
+.decorative-circle {
+
+  position: absolute;
+
+  right: -15px;
+
+  top: 20px;
+
+  width: 72px;
+
+  height: 72px;
+
+  border: 1px solid rgba(206, 75, 102, 0.25);
+
+  border-radius: 50%;
+
+}
+
+
+
+/* FEATURE STRIP */
+
+
+
+.feature-strip {
+
+  padding: 27px 0;
+
+  background: #fff;
+
+  border-top: 1px solid #f8e9ee;
+
+  border-bottom: 1px solid #f8e9ee;
+
+}
+
+
+
+.feature-grid {
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 25px;
+
+}
+
+
+
+.feature-item {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 4px 15px;
+
+}
+
+
+
+.feature-number {
+
+  color: var(--rhubarb);
+
+  font-family: var(--font-heading);
+
+  font-size: 28px;
+
+}
+
+
+
+.feature-item h3 {
+
+  margin-bottom: 3px;
+
+  font-size: 12px;
+
+}
+
+
+
+.feature-item p {
+
+  color: var(--text-soft);
+
+  font-size: 10px;
+
+}
+
+
+
+/* PROFIL */
+
+
+
+.profile-section {
+
+  background: var(--white);
+
+}
+
+
+
+.profile-grid {
+
+  display: grid;
+
+  grid-template-columns: 0.9fr 1fr;
+
+  align-items: center;
+
+  gap: 85px;
+
+}
+
+
+
+.profile-visual {
+
+  position: relative;
+
+  padding: 0 0 28px 25px;
+
+}
+
+
+
+.profile-visual::before {
+
+  content: "";
+
+  position: absolute;
+
+  z-index: 0;
+
+  top: 22px;
+
+  left: 0;
+
+  width: 75%;
+
+  height: 88%;
+
+  border-radius: 22px;
+
+  background: var(--pastel-pink);
+
+}
+
+
+
+.profile-visual img {
+
+  position: relative;
+
+  z-index: 1;
+
+  height: 410px;
+
+  border-radius: 18px;
+
+  object-fit: cover;
+
+  box-shadow: var(--shadow);
+
+}
+
+
+
+.image-caption {
+
+  position: absolute;
+
+  z-index: 2;
+
+  right: -16px;
+
+  bottom: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  padding: 15px 18px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 12px;
+
+  background: white;
+
+  box-shadow: var(--shadow);
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+}
+
+
+
+.caption-mark {
+
+  color: var(--rhubarb);
+
+  font-size: 22px;
+
+}
+
+
+
+.profile-content h2 {
+
+  margin-bottom: 20px;
+
+}
+
+
+
+.profile-content > p {
+
+  margin-bottom: 14px;
+
+  color: var(--text-soft);
+
+  font-size: 13px;
+
+  line-height: 1.95;
+
+}
+
+
+
+.profile-content blockquote {
+
+  position: relative;
+
+  margin: 25px 0;
+
+  padding: 20px 22px 20px 24px;
+
+  border-left: 3px solid var(--coral);
+
+  border-radius: 0 12px 12px 0;
+
+  background: var(--pink-pale);
+
+}
+
+
+
+.quote-mark {
+
+  color: var(--rhubarb);
+
+  font-family: var(--font-heading);
+
+  font-size: 34px;
+
+  line-height: 1;
+
+}
+
+
+
+.profile-content blockquote p {
+
+  margin: 3px 0 8px;
+
+  font-family: var(--font-heading);
+
+  font-size: 16px;
+
+  font-style: italic;
+
+  line-height: 1.6;
+
+}
+
+
+
+.profile-content cite {
+
+  color: var(--text-soft);
+
+  font-size: 10px;
+
+  font-style: normal;
+
+}
+
+
+
+.text-link {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color: var(--rhubarb);
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+}
+
+
+
+.text-link span {
+
+  transition: transform 0.2s ease;
+
+}
+
+
+
+.text-link:hover span {
+
+  transform: translateX(4px);
+
+}
+
+
+
+/* HEADING BAGIAN */
+
+
+
+.section-heading {
+
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  gap: 35px;
+
+  margin-bottom: 42px;
+
+}
+
+
+
+.section-heading h2 {
+
+  max-width: 600px;
+
+}
+
+
+
+.section-heading > p {
+
+  max-width: 350px;
+
+  color: var(--text-soft);
+
+  font-size: 12px;
+
+  line-height: 1.9;
+
+}
+
+
+
+/* MATERI */
+
+
+
+.materials-section {
+
+  background: var(--pink-pale);
+
+}
+
+
+
+.materials-grid {
+
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 17px;
+
+}
+
+
+
+.material-card {
+
+  min-width: 0;
+
+  padding: 24px 20px 22px;
+
+  border: 1px solid #f1e0e5;
+
+  border-radius: var(--radius);
+
+  background: white;
+
+  transition:
+
+    transform 0.25s ease,
+
+    box-shadow 0.25s ease,
+
+    border-color 0.25s ease;
+
+}
+
+
+
+.material-card:hover {
+
+  transform: translateY(-5px);
+
+  border-color: #ecc1ce;
+
+  box-shadow: var(--shadow);
+
+}
+
+
+
+.material-card-top {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 8px;
+
+  margin-bottom: 24px;
+
+}
+
+
+
+.material-icon {
+
+  display: grid;
+
+  place-items: center;
+
+  width: 45px;
+
+  height: 45px;
+
+  border-radius: 13px;
+
+  font-size: 23px;
+
+}
+
+
+
+.icon-pink {
+
+  color: var(--rhubarb);
+
+  background: #fff0f4;
+
+}
+
+
+
+.icon-coral {
+
+  color: #d65e54;
+
+  background: #fff0ed;
+
+}
+
+
+
+.icon-purple {
+
+  color: #8857ae;
+
+  background: #f4eaff;
+
+}
+
+
+
+.icon-yellow {
+
+  color: #a67825;
+
+  background: #fff5dc;
+
+}
+
+
+
+.material-index {
+
+  color: #aa929b;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+}
+
+
+
+.material-card h3 {
+
+  margin-bottom: 12px;
+
+  font-size: 15px;
+
+}
+
+
+
+.material-card > p {
+
+  min-height: 88px;
+
+  margin-bottom: 18px;
+
+  color: var(--text-soft);
+
+  font-size: 11px;
+
+  line-height: 1.9;
+
+}
+
+
+
+.card-link {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 8px;
+
+  padding-top: 14px;
+
+  border-top: 1px solid #f5e7eb;
+
+  color: var(--rhubarb);
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+}
+
+
+
+/* TABEL PERIODIK */
+
+
+
+.periodic-section {
+
+  position: relative;
+
+  padding: 100px 0;
+
+  background:
+
+    radial-gradient(ellipse at 5% 15%, #fff0f4 0%, transparent 42%),
+
+    #fff;
+
+  overflow: hidden;
+
+}
+
+
+
+.periodic-heading {
+
+  align-items: flex-end;
+
+}
+
+
+
+.periodic-legend {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  align-items: center;
+
+  gap: 12px 22px;
+
+  margin-bottom: 28px;
+
+  color: var(--text-soft);
+
+  font-size: 10px;
+
+}
+
+
+
+.periodic-legend span {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+}
+
+
+
+.periodic-legend i {
+
+  width: 9px;
+
+  height: 9px;
+
+  border-radius: 3px;
+
+}
+
+
+
+.legend-pink {
+
+  background: #f8d7e2;
+
+}
+
+
+
+.legend-purple {
+
+  background: #d9baf3;
+
+}
+
+
+
+.legend-coral {
+
+  background: #ffbdb6;
+
+}
+
+
+
+.legend-yellow {
+
+  background: #f5d6a5;
+
+}
+
+
+
+.legend-green {
+
+  background: #bde4c8;
+
+}
+
+
+
+.legend-blue {
+
+  background: #bddcf8;
+
+}
+
+
+
+.periodic-grid {
+
+  display: grid;
+
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+
+  gap: 14px;
+
+  align-items: start;
+
+}
+
+
+
+.element {
+
+  position: relative;
+
+  z-index: 1;
+
+  min-width: 0;
+
+  border: 1px solid #f0cbd5;
+
+  border-radius: 14px;
+
+  background: #fff1f3;
+
+  box-shadow: 0 4px 12px rgba(126, 56, 78, 0.05);
+
+  transition:
+
+    transform 0.25s ease,
+
+    box-shadow 0.25s ease,
+
+    border-color 0.25s ease;
+
+}
+
+
+
+.element > summary {
+
+  display: flex;
+
+  min-height: 112px;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 5px;
+
+  padding: 12px 8px;
+
+  border-radius: 14px;
+
+  text-align: center;
+
+  cursor: pointer;
+
+  list-style: none;
+
+  outline-offset: 3px;
+
+}
+
+
+
+.element > summary::-webkit-details-marker {
+
+  display: none;
+
+}
+
+
+
+.element > summary::marker {
+
+  content: "";
+
+}
+
+
+
+.element:hover {
+
+  z-index: 4;
+
+  transform: translateY(-5px);
+
+  border-color: var(--rhubarb);
+
+  box-shadow: 0 12px 24px rgba(126, 56, 78, 0.13);
+
+}
+
+
+
+.element[open] {
+
+  z-index: 10;
+
+  border-color: var(--rhubarb);
+
+  box-shadow: 0 12px 26px rgba(126, 56, 78, 0.17);
+
+}
+
+
+
+.atomic-number {
+
+  align-self: flex-start;
+
+  color: #8d6c78;
+
+  font-size: 11px;
+
+}
+
+
+
+.element-symbol {
+
+  color: var(--rhubarb-dark);
+
+  font-family: var(--font-heading);
+
+  font-size: 32px;
+
+  font-weight: 700;
+
+  line-height: 1.1;
+
+}
+
+
+
+.element-name {
+
+  color: #765560;
+
+  font-size: 11px;
+
+  overflow-wrap: anywhere;
+
+}
+
+
+
+.element-nonmetal {
+
+  background: #fff1f3;
+
+}
+
+
+
+.element-noble {
+
+  background: #f6edff;
+
+  border-color: #ddc7f5;
+
+}
+
+
+
+.element-noble .element-symbol {
+
+  color: #8651b2;
+
+}
+
+
+
+.element-alkali {
+
+  background: #ffe8e6;
+
+  border-color: #ffc7c0;
+
+}
+
+
+
+.element-alkali .element-symbol {
+
+  color: #d3544b;
+
+}
+
+
+
+.element-alkaline {
+
+  background: #fff0d9;
+
+  border-color: #f5d6a5;
+
+}
+
+
+
+.element-alkaline .element-symbol {
+
+  color: #ad7423;
+
+}
+
+
+
+.element-metalloid {
+
+  background: #eaf7ee;
+
+  border-color: #c1e6cb;
+
+}
+
+
+
+.element-metalloid .element-symbol {
+
+  color: #398353;
+
+}
+
+
+
+.element-halogen {
+
+  background: #e9f5ff;
+
+  border-color: #c3e0fa;
+
+}
+
+
+
+.element-halogen .element-symbol {
+
+  color: #3479b7;
+
+}
+
+
+
+/* Panel keterangan unsur */
+
+
+
+.element-info {
+
+  position: absolute;
+
+  top: calc(100% + 9px);
+
+  left: 0;
+
+  z-index: 20;
+
+  width: 250px;
+
+  max-width: min(250px, 82vw);
+
+  padding: 18px;
+
+  border: 1px solid #f0cbd5;
+
+  border-radius: 15px;
+
+  background: white;
+
+  box-shadow: 0 18px 40px rgba(74, 35, 49, 0.18);
+
+  animation: elementAppear 0.22s ease both;
+
+}
+
+
+
+.element-info h3 {
+
+  margin: 0 0 12px;
+
+  color: var(--rhubarb-dark);
+
+  font-size: 17px;
+
+}
+
+
+
+.element-info p {
+
+  margin: 7px 0;
+
+  color: var(--text-soft);
+
+  font-size: 12px;
+
+  line-height: 1.75;
+
+}
+
+
+
+.element-info p:last-child {
+
+  padding-top: 9px;
+
+  border-top: 1px solid #f5e2e8;
+
+}
+
+
+
+.element:nth-child(6n) .element-info,
+
+.element:nth-child(6n - 1) .element-info {
+
+  left: auto;
+
+  right: 0;
+
+}
+
+
+
+.periodic-note {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 9px;
+
+  margin-top: 32px;
+
+  color: var(--text-soft);
+
+  font-size: 11px;
+
+  text-align: center;
+
+}
+
+
+
+.note-dot {
+
+  width: 8px;
+
+  height: 8px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: var(--rhubarb);
+
+}
+
+
+
+@keyframes elementAppear {
+
+  from {
+
+    opacity: 0;
+
+    transform: translateY(-7px) scale(0.98);
+
+  }
+
+
+
+  to {
+
+    opacity: 1;
+
+    transform: translateY(0) scale(1);
+
+  }
+
+}
+
+
+
+/* CONTOH FORMAT KIMIA */
+
+
+
+.format-section {
+
+  background: var(--pink-pale);
+
+}
+
+
+
+.format-grid {
+
+  display: grid;
+
+  grid-template-columns: 1fr 0.9fr;
+
+  align-items: center;
+
+  gap: 75px;
+
+}
+
+
+
+.format-content h2 {
+
+  margin-bottom: 18px;
+
+}
+
+
+
+.format-content > p {
+
+  color: var(--text-soft);
+
+  font-size: 13px;
+
+  line-height: 1.95;
+
+}
+
+
+
+.formula-card {
+
+  margin: 24px 0;
+
+  padding: 24px;
+
+  border: 1px solid #f0dce2;
+
+  border-radius: 16px;
+
+  background: white;
+
+  box-shadow: var(--shadow);
+
+}
+
+
+
+.formula-label {
+
+  color: var(--rhubarb);
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+
+}
+
+
+
+.formula {
+
+  margin: 8px 0;
+
+  color: var(--rhubarb-dark);
+
+  font-family: var(--font-heading);
+
+  font-size: 48px;
+
+  font-weight: 700;
+
+}
+
+
+
+.formula-card p {
+
+  color: var(--text-soft);
+
+  font-size: 11px;
+
+}
+
+
+
+.format-example {
+
+  margin-top: 14px;
+
+}
+
+
+
+.concept-panel {
+
+  padding: 30px;
+
+  border: 1px solid #f0dce2;
+
+  border-radius: 20px;
+
+  background: white;
+
+  box-shadow: var(--shadow);
+
+}
+
+
+
+.concept-panel h3 {
+
+  margin-bottom: 22px;
+
+  font-family: var(--font-heading);
+
+  font-size: 23px;
+
+}
+
+
+
+.concept-row {
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 14px;
+
+  padding: 15px 0;
+
+  border-bottom: 1px solid #f6e8ec;
+
+}
+
+
+
+.concept-row:last-of-type {
+
+  border-bottom: 0;
+
+}
+
+
+
+.concept-bullet {
+
+  display: grid;
+
+  place-items: center;
+
+  width: 30px;
+
+  height: 30px;
+
+  flex-shrink: 0;
+
+  border-radius: 9px;
+
+  color: var(--rhubarb);
+
+  background: var(--pink-light);
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+}
+
+
+
+.concept-row p {
+
+  padding-top: 3px;
+
+  color: var(--text-soft);
+
+  font-size: 12px;
+
+  line-height: 1.8;
+
+}
+
+
+
+.concept-row strong {
+
+  color: var(--text);
+
+}
+
+
+
+mark {
+
+  padding: 2px 4px;
+
+  border-radius: 3px;
+
+  color: var(--rhubarb-dark);
+
+  background: #ffe1a8;
+
+}
+
+
+
+/* DAFTAR BERTINGKAT */
+
+
+
+.learning-section {
+
+  background: white;
+
+}
+
+
+
+.learning-grid {
+
+  display: grid;
+
+  grid-template-columns: 0.9fr 1fr;
+
+  align-items: start;
+
+  gap: 75px;
+
+}
+
+
+
+.learning-grid h2 {
+
+  margin-bottom: 18px;
+
+}
+
+
+
+.learning-intro {
+
+  max-width: 440px;
+
+  color: var(--text-soft);
+
+  font-size: 13px;
+
+  line-height: 1.95;
+
+}
+
+
+
+.learning-list-card {
+
+  padding: 30px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 18px;
+
+  background: var(--pink-pale);
+
+}
+
+
+
+.learning-list-card h3 {
+
+  margin-bottom: 20px;
+
+  font-family: var(--font-heading);
+
+  font-size: 22px;
+
+}
+
+
+
+.learning-list-card ol {
+
+  padding-left: 22px;
+
+}
+
+
+
+.learning-list-card ol > li {
+
+  padding: 8px 0;
+
+  color: var(--text);
+
+  font-weight: 600;
+
+}
+
+
+
+.learning-list-card ul {
+
+  padding: 5px 0 5px 20px;
+
+}
+
+
+
+.learning-list-card ul li {
+
+  padding: 3px 0;
+
+  color: var(--text-soft);
+
+  font-size: 12px;
+
+  font-weight: 400;
+
+}
+
+
+
+/* GALERI */
+
+
+
+.gallery-section {
+
+  background: var(--pink-pale);
+
+}
+
+
+
+.gallery-grid {
+
+  display: grid;
+
+  grid-template-columns: 1.35fr 1fr 1fr;
+
+  gap: 18px;
+
+}
+
+
+
+.gallery-card {
+
+  position: relative;
+
+  min-width: 0;
+
+  height: 285px;
+
+  overflow: hidden;
+
+  border-radius: 17px;
+
+  background: var(--pastel-pink);
+
+  box-shadow: 0 8px 22px rgba(85, 42, 58, 0.07);
+
+}
+
+
+
+.gallery-card img {
+
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: transform 0.5s ease;
+
+}
+
+
+
+.gallery-card:hover img {
+
+  transform: scale(1.06);
+
+}
+
+
+
+.gallery-card::after {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 35% 0 0;
+
+  background: linear-gradient(transparent, rgba(40, 18, 28, 0.75));
+
+  pointer-events: none;
+
+}
+
+
+
+.gallery-card figcaption {
+
+  position: absolute;
+
+  z-index: 1;
+
+  right: 18px;
+
+  bottom: 18px;
+
+  left: 18px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color: white;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+}
+
+
+
+.gallery-card figcaption span {
+
+  color: #ffd6df;
+
+  font-size: 10px;
+
+}
+
+
+
+/* TABEL JADWAL */
+
+
+
+.schedule-section {
+
+  background: white;
+
+}
+
+
+
+.table-wrap {
+
+  width: 100%;
+
+  overflow-x: auto;
+
+  border: 1px solid var(--border);
+
+  border-radius: 15px;
+
+  background: white;
+
+  box-shadow: var(--shadow);
+
+}
+
+
+
+table {
+
+  width: 100%;
+
+  min-width: 620px;
+
+  border-collapse: collapse;
+
+  text-align: left;
+
+}
+
+
+
+caption {
+
+  padding: 20px;
+
+  color: var(--rhubarb-dark);
+
+  background: #fff7f9;
+
+  font-weight: 700;
+
+  text-align: left;
+
+}
+
+
+
+thead {
+
+  color: white;
+
+  background: var(--rhubarb);
+
+}
+
+
+
+th,
+
+td {
+
+  padding: 16px 20px;
+
+  border-bottom: 1px solid #f3e5e9;
+
+  font-size: 12px;
+
+}
+
+
+
+th {
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+}
+
+
+
+tbody tr {
+
+  transition: background 0.2s ease;
+
+}
+
+
+
+tbody tr:nth-child(even) {
+
+  background: #fff9fb;
+
+}
+
+
+
+tbody tr:hover {
+
+  background: #ffedf2;
+
+}
+
+
+
+tbody tr:last-child td {
+
+  border-bottom: 0;
+
+}
+
+
+
+td {
+
+  color: var(--text-soft);
+
+}
+
+
+
+td:first-child {
+
+  color: var(--rhubarb);
+
+  font-weight: 700;
+
+}
+
+
+
+.table-note {
+
+  margin-top: 14px;
+
+  color: #9a818b;
+
+  font-size: 10px;
+
+}
+
+
+
+/* KONTAK */
+
+
+
+.contact-section {
+
+  background:
+
+    radial-gradient(ellipse at 0% 100%, #ffe5ec 0%, transparent 45%),
+
+    #fff8fa;
+
+}
+
+
+
+.contact-grid {
+
+  display: grid;
+
+  grid-template-columns: 0.9fr 1fr;
+
+  align-items: start;
+
+  gap: 80px;
+
+}
+
+
+
+.contact-content h2 {
+
+  margin-bottom: 18px;
+
+}
+
+
+
+.contact-content > p {
+
+  max-width: 420px;
+
+  margin-bottom: 28px;
+
+  color: var(--text-soft);
+
+  font-size: 13px;
+
+  line-height: 1.9;
+
+}
+
+
+
+.contact-detail {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  margin-top: 18px;
+
+}
+
+
+
+.contact-detail-icon {
+
+  display: grid;
+
+  place-items: center;
+
+  width: 42px;
+
+  height: 42px;
+
+  border: 1px solid #f1d4de;
+
+  border-radius: 12px;
+
+  color: var(--rhubarb);
+
+  background: white;
+
+  font-size: 18px;
+
+}
+
+
+
+.contact-detail strong {
+
+  font-size: 12px;
+
+}
+
+
+
+.contact-detail p {
+
+  color: var(--text-soft);
+
+  font-size: 10px;
+
+}
+
+
+
+.contact-form {
+
+  padding: 30px;
+
+  border: 1px solid #f1dce3;
+
+  border-radius: 20px;
+
+  background: white;
+
+  box-shadow: var(--shadow);
+
+}
+
+
+
+.contact-form label {
+
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: var(--text);
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+}
+
+
+
+.contact-form input,
+
+.contact-form select,
+
+.contact-form textarea {
+
+  display: block;
+
+  width: 100%;
+
+  margin-bottom: 18px;
+
+  padding: 12px 14px;
+
+  border: 1px solid #eadce1;
+
+  border-radius: 9px;
+
+  outline: none;
+
+  color: var(--text);
+
+  background: #fffdfd;
+
+  font-size: 12px;
+
+  transition:
+
+    border-color 0.2s ease,
+
+    box-shadow 0.2s ease;
+
+}
+
+
+
+.contact-form input:focus,
+
+.contact-form select:focus,
+
+.contact-form textarea:focus {
+
+  border-color: var(--rhubarb);
+
+  box-shadow: 0 0 0 3px rgba(206, 75, 102, 0.08);
+
+}
+
+
+
+.contact-form textarea {
+
+  min-height: 110px;
+
+  resize: vertical;
+
+}
+
+
+
+.contact-form input::placeholder,
+
+.contact-form textarea::placeholder {
+
+  color: #b39da6;
+
+}
+
+
+
+.contact-form .button {
+
+  width: 100%;
+
+}
+
+
+
+.form-note {
+
+  margin-top: 12px;
+
+  color: #9b858e;
+
+  font-size: 10px;
+
+  line-height: 1.7;
+
+  text-align: center;
+
+}
+
+
+
+/* FOOTER */
+
+
+
+.site-footer {
+
+  color: #f8eaf0;
+
+  background: #39252e;
+
+}
+
+
+
+.footer-main {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 25px;
+
+  padding-top: 36px;
+
+  padding-bottom: 32px;
+
+}
+
+
+
+.footer-logo {
+
+  color: white;
+
+}
+
+
+
+.footer-logo .logo-light {
+
+  color: #ff9dad;
+
+}
+
+
+
+.footer-main > p {
+
+  max-width: 360px;
+
+  color: #d0b9c2;
+
+  font-size: 11px;
+
+  line-height: 1.8;
+
+}
+
+
+
+.back-to-top {
+
+  color: #ffb5c3;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  white-space: nowrap;
+
+}
+
+
+
+.back-to-top:hover {
+
+  color: white;
+
+}
+
+
+
+.footer-bottom {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding-top: 20px;
+
+  padding-bottom: 20px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+}
+
+
+
+.footer-bottom p {
+
+  color: #bfaab3;
+
+  font-size: 10px;
+
+}
+
+
+
+/* RESPONSIVE TABLET */
+
+
+
+@media (max-width: 1000px) {
+
+  .container {
+
+    width: 90%;
+
+  }
+
+
+
+  .nav-links {
+
+    gap: 14px;
+
+  }
+
+
+
+  .nav-links a {
+
+    font-size: 11px;
+
+  }
+
+
+
+  .hero-layout {
+
+    gap: 42px;
+
+  }
+
+
+
+  .hero-image-frame {
+
+    height: 370px;
+
+  }
+
+
+
+  .profile-grid,
+
+  .format-grid,
+
+  .learning-grid,
+
+  .contact-grid {
+
+    gap: 45px;
+
+  }
+
+
+
+  .materials-grid {
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  }
+
+
+
+  .material-card > p {
+
+    min-height: auto;
+
+  }
+
+
+
+  .periodic-grid {
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 10px;
+
+  }
+
+
+
+  .element:nth-child(6n) .element-info,
+
+  .element:nth-child(6n - 1) .element-info {
+
+    left: 0;
+
+    right: auto;
+
+  }
+
+
+
+  .element:nth-child(4n) .element-info,
+
+  .element:nth-child(4n - 1) .element-info {
+
+    left: auto;
+
+    right: 0;
+
+  }
+
+
+
+  .gallery-card {
+
+    height: 240px;
+
+  }
+
+}
+
+
+
+/* RESPONSIVE HP DAN TABLET KECIL */
+
+
+
+@media (max-width: 720px) {
+
+  html {
+
+    scroll-padding-top: 75px;
+
+  }
+
+
+
+  .section {
+
+    padding: 70px 0;
+
+  }
+
+
+
+  .navbar {
+
+    min-height: 70px;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    padding-top: 12px;
+
+    padding-bottom: 12px;
+
+  }
+
+
+
+  .logo {
+
+    font-size: 14px;
+
+  }
+
+
+
+  .logo-icon {
+
+    width: 31px;
+
+    height: 31px;
+
+  }
+
+
+
+  .nav-links {
+
+    order: 3;
+
+    width: 100%;
+
+    gap: 20px;
+
+    padding: 4px 0 2px;
+
+    overflow-x: auto;
+
+    scrollbar-width: none;
+
+  }
+
+
+
+  .nav-links::-webkit-scrollbar {
+
+    display: none;
+
+  }
+
+
+
+  .nav-links a {
+
+    flex-shrink: 0;
+
+    font-size: 11px;
+
+  }
+
+
+
+  .nav-button {
+
+    padding: 8px 12px;
+
+    font-size: 10px;
+
+  }
+
+
+
+  .hero {
+
+    padding: 60px 0 70px;
+
+  }
+
+
+
+  .hero-layout {
+
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+
+  }
+
+
+
+  .hero h1 {
+
+    font-size: clamp(40px, 9vw, 56px);
+
+  }
+
+
+
+  .hero-description {
+
+    font-size: 13px;
+
+  }
+
+
+
+  .hero-visual {
+
+    width: min(100%, 450px);
+
+    margin: 0 auto;
+
+  }
+
+
+
+  .hero-image-frame {
+
+    height: 380px;
+
+  }
+
+
+
+  .floating-card-top {
+
+    left: -7px;
+
+  }
+
+
+
+  .floating-card-bottom {
+
+    right: -5px;
+
+  }
+
+
+
+  .feature-grid {
+
+    grid-template-columns: 1fr;
+
+    gap: 16px;
+
+  }
+
+
+
+  .feature-item {
+
+    padding: 5px 0;
+
+  }
+
+
+
+  .profile-grid,
+
+  .format-grid,
+
+  .learning-grid,
+
+  .contact-grid {
+
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+
+  }
+
+
+
+  .profile-visual {
+
+    width: min(100%, 470px);
+
+    margin: 0 auto;
+
+  }
+
+
+
+  .profile-visual img {
+
+    height: 350px;
+
+  }
+
+
+
+  .section-heading {
+
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 14px;
+
+    margin-bottom: 30px;
+
+  }
+
+
+
+  .section-heading > p {
+
+    max-width: 500px;
+
+  }
+
+
+
+  .materials-grid {
+
+    gap: 12px;
+
+  }
+
+
+
+  .material-card {
+
+    padding: 19px 15px;
+
+  }
+
+
+
+  .material-card-top {
+
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-bottom: 17px;
+
+  }
+
+
+
+  .material-card h3 {
+
+    font-size: 14px;
+
+  }
+
+
+
+  .material-card > p {
+
+    font-size: 11px;
+
+  }
+
+
+
+  .periodic-section {
+
+    padding: 70px 0;
+
+  }
+
+
+
+  .periodic-grid {
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 8px;
+
+  }
+
+
+
+  .element > summary {
+
+    min-height: 100px;
+
+    padding: 10px 5px;
+
+  }
+
+
+
+  .element-symbol {
+
+    font-size: 27px;
+
+  }
+
+
+
+  .element-name {
+
+    font-size: 10px;
+
+  }
+  .element-info {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: auto;
+    z-index: 20;
+    width: 165px;
+    max-width: calc(100vw - 48px);
+    max-height: 42vh;
+    overflow-y: auto;
+    padding: 10px;
+    border-radius: 11px;
+    font-size: 11px;
+    line-height: 1.55;
+    transform: none;
+    animation: elementAppear 0.22s ease both;
+  }
+
+  .element:nth-child(3n) .element-info {
+    left: auto;
+    right: 0;
+  }
+
+  .element-info h3 {
+    margin-bottom: 7px;
+    font-size: 14px;
+  }
+
+  .element-info p {
+    margin: 5px 0;
+    font-size: 11px;
+  }
+
+
+
+
+  .periodic-legend {
+
+    gap: 10px 14px;
+
+    margin-bottom: 22px;
+
+  }
+
+
+
+  .periodic-legend span {
+
+    font-size: 9px;
+
+  }
+
+
+
+  .concept-panel,
+
+  .learning-list-card,
+
+  .contact-form {
+
+    padding: 23px;
+
+  }
+
+
+
+  .gallery-grid {
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+
+  }
+
+
+
+  .gallery-card {
+
+    height: 220px;
+
+  }
+
+
+
+  .gallery-large {
+
+    grid-column: 1 / -1;
+
+    height: 280px;
+
+  }
+
+
+
+  .footer-main {
+
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 16px;
+
+  }
+
+
+
+  .footer-main > p {
+
+    max-width: 400px;
+
+  }
+
+
+
+  .footer-bottom {
+
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+  }
+
+}
+
+
+
+/* RESPONSIVE HP KECIL */
+
+
+
+@media (max-width: 380px) {
+
+  .container {
+
+    width: 92%;
+
+  }
+
+
+
+  .hero h1 {
+
+    font-size: 37px;
+
+  }
+
+
+
+  .hero-image-frame {
+
+    height: 320px;
+
+  }
+
+
+
+  .materials-grid {
+
+    grid-template-columns: 1fr;
+
+  }
+
+
+
+  .material-card-top {
+
+    align-items: center;
+
+    flex-direction: row;
+
+  }
+
+
+
+  .periodic-grid {
+
+    gap: 6px;
+
+  }
+
+
+
+  .element > summary {
+    min-height: 72px;
+    padding: 7px 3px;
+  }
+
+  .element-symbol {
+    font-size: 22px;
+  }
+
+  .element-info {
+    width: 145px;
+    max-width: calc(100vw - 40px);
+    max-height: 38vh;
+    padding: 9px;
+    font-size: 10px;
+  }
+
+
+
+  .element-name {
+
+    font-size: 9px;
+
+  }
+
+
+
+  .gallery-grid {
+
+    grid-template-columns: 1fr;
+
+  }
+
+
+
+  .gallery-large {
+
+    grid-column: auto;
+
+  }
+
+
+
+  .gallery-card,
+
+  .gallery-large {
+
+    height: 240px;
+
+  }
+
+}
+
+
+
+/* AKSESIBILITAS: kurangi animasi jika diminta pengguna */
+
+
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+
+    scroll-behavior: auto;
+
+  }
+
+
+
+  *,
+
+  *::before,
+
+  *::after {
+
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+
+  }
+
+}
+
+/* BAGIAN YANG DIHAPUS DARI TAMPILAN */
+.schedule-section,
+.contact-section {
+  display: none !important;
+}
+
+
+/* Kartu informasi pada bagian Tentang Kami */
+.profile-highlights {
+  display: grid;
+  gap: 12px;
+  margin: 22px 0;
+}
+
+.profile-highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 15px 16px;
+  border: 1px solid rgba(194, 79, 111, 0.14);
+  border-radius: 14px;
+  background: rgba(255, 241, 245, 0.72);
+}
+
+.highlight-number {
+  display: inline-flex;
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: var(--pink-pale);
+  color: var(--rhubarb);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.profile-highlight h3 {
+  margin: 1px 0 5px;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.profile-highlight p {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+@media (max-width: 600px) {
+  .profile-highlights {
+    gap: 10px;
+  }
+
+  .profile-highlight {
+    padding: 13px;
+    gap: 11px;
+  }
+}
+
+
+/* ===== TABEL PERIODIK 118 UNSUR ===== */
+.periodic-section .periodic-grid{display:grid;grid-template-columns:repeat(18,minmax(54px,1fr));grid-template-rows:repeat(7,92px);gap:6px;min-width:1080px}
+.periodic-section .element,.periodic-section .series-element{position:relative;min-width:0;border-radius:10px;border:1px solid rgba(255,255,255,.9);box-shadow:0 4px 12px rgba(72,35,57,.08);transition:transform .18s ease,box-shadow .18s ease}
+.periodic-section .element:hover,.periodic-section .series-element:hover{transform:translateY(-3px);z-index:4}
+.periodic-section .element[open],.periodic-section .series-element[open]{z-index:20}
+.periodic-section .element summary,.periodic-section .series-element summary{list-style:none;cursor:pointer;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:5px 2px;text-align:center}
+.periodic-section .element summary::-webkit-details-marker,.periodic-section .series-element summary::-webkit-details-marker{display:none}
+.periodic-section .element .atomic-number,.periodic-section .series-element .atomic-number{align-self:flex-start;font-size:.62rem;padding-left:3px}
+.periodic-section .element .element-symbol,.periodic-section .series-element .element-symbol{font-size:clamp(1.05rem,1.5vw,1.45rem);font-weight:800;line-height:1.1}
+.periodic-section .element .element-name,.periodic-section .series-element .element-name{font-size:.58rem;line-height:1.1;overflow-wrap:anywhere;text-align:center}
+.periodic-section .element .atomic-mass,.periodic-section .series-element .atomic-mass{font-size:.52rem;line-height:1}
+.periodic-section .element-info{position:absolute;top:calc(100% + 5px);left:0;width:230px;max-width:78vw;padding:13px;border:1px solid #f0d4e0;border-radius:13px;background:#fffafd;box-shadow:0 14px 30px rgba(64,31,50,.2);text-align:left;color:#33243a}
+.periodic-section .element-info h3{margin:0 0 8px;font-size:.95rem}
+.periodic-section .element-info p{margin:5px 0;font-size:.73rem;line-height:1.5}
+.periodic-section .series-section{margin-top:24px}
+.periodic-section .series-grid{display:grid;grid-template-columns:repeat(15,minmax(54px,1fr));grid-template-rows:92px;gap:6px;min-width:900px}
+.periodic-section .element-alkali{background:#ffdce5;color:#85364e}.periodic-section .element-alkaline{background:#ffe7cf;color:#895a27}.periodic-section .element-transition{background:#ffe9a9;color:#745619}.periodic-section .element-post{background:#d9f0df;color:#326b4a}.periodic-section .element-metalloid{background:#ccecf0;color:#276a76}.periodic-section .element-nonmetal{background:#dce8ff;color:#3b5f9a}.periodic-section .element-halogen{background:#e9ddff;color:#674c9a}.periodic-section .element-noble{background:#ffd9c9;color:#9a5038}.periodic-section .element-lanthanoid{background:#f5d9f2;color:#854a83}.periodic-section .element-actinoid{background:#e4ddf7;color:#62518e}.periodic-section .element-unknown{background:#e6e6eb;color:#565866}
+.periodic-section .periodic-legend{display:flex;flex-wrap:wrap;gap:9px 15px;margin:0 0 20px}.periodic-section .periodic-legend span{display:inline-flex;align-items:center;gap:7px;font-size:.78rem;color:#715e6c}.periodic-section .periodic-legend i{display:inline-block;width:12px;height:12px;border-radius:4px}
+.periodic-section .legend-pink{background:#dce8ff}.periodic-section .legend-purple{background:#ffd9c9}.periodic-section .legend-coral{background:#ffdce5}.periodic-section .legend-yellow{background:#ffe7cf}.periodic-section .legend-green{background:#ccecf0}.periodic-section .legend-blue{background:#e9ddff}.periodic-section .legend-transition{background:#ffe9a9}.periodic-section .legend-lanth{background:#f5d9f2}
+.periodic-section .periodic-note{margin-top:16px;font-size:.82rem;color:#9a8794}.periodic-section .scroll-hint{font-size:.8rem;color:#9a8794;margin:0 0 10px}
+@media(max-width:640px){.periodic-section .periodic-grid{min-width:1080px}.periodic-section .series-grid{min-width:900px}}
+
+</style>
 </head>
+
 <body>
 
   <!-- Navigasi utama -->
+
   <header class="site-header">
+
     <nav class="navbar container">
+
       <a href="#beranda" class="logo">
+
         <span class="logo-icon">C</span>
+
         <span>Chemistry<span class="logo-light">Lab.</span></span>
+
       </a>
 
       <div class="nav-links">
+
         <a href="#beranda">Beranda</a>
+
         <a href="#profil">Profil</a>
+
         <a href="#materi">Materi</a>
+
         <a href="#tabel-periodik">Tabel Periodik</a>
+
         <a href="#galeri">Galeri</a>
+
       </div>
+
     </nav>
+
   </header>
 
   <main>
 
     <!-- Hero -->
+
     <section class="hero" id="beranda">
+
       <div class="hero-bg"></div>
 
       <div class="container hero-layout">
+
         <div class="hero-content">
+
           <span class="eyebrow">
+
             <span class="eyebrow-dot"></span>
+
           </span>
 
           <h1>
+
             Mengenal dunia<br>
+
             melalui <span>ilmu kimia.</span>
+
           </h1>
 
           <p class="hero-description">
+
             Jelajahi unsur, pahami reaksi, dan temukan hubungan
+
             antara ilmu kimia dengan kehidupan sehari-hari
+
             melalui pembelajaran yang menarik.
+
           </p>
 
           <div class="hero-actions">
+
             <a href="#materi" class="button button-primary">
+
               Mulai Belajar <span>↗</span>
+
             </a>
+
             <a href="#tabel-periodik" class="button button-secondary">
+
               Jelajahi Unsur
+
             </a>
+
           </div>
 
           <div class="hero-note">
+
             <span class="note-line"></span>
+
             <span>Belajar sains, memahami kehidupan.</span>
+
           </div>
+
         </div>
 
         <div class="hero-visual">
+
           <div class="hero-image-frame">
+
             <img
+
               src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1000&q=85"
+
               alt="Peralatan laboratorium untuk pembelajaran kimia"
+
             >
+
           </div>
 
           <div class="floating-card floating-card-top">
+
             <span class="floating-symbol">H₂O</span>
+
             <span>
+
               <strong>Air</strong>
+
               <small>Senyawa kimia</small>
+
             </span>
+
           </div>
 
           <div class="floating-card floating-card-bottom">
+
             <span class="floating-icon">✳</span>
+
             <span>
+
               <strong>Explore Science</strong>
+
               <small>Amati · Pelajari · Pahami</small>
+
             </span>
+
           </div>
 
           <div class="decorative-circle"></div>
+
         </div>
+
       </div>
+
     </section>
 
     <!-- Ringkasan -->
+
     <section class="feature-strip">
+
       <div class="container feature-grid">
+
         <div class="feature-item">
+
           <span class="feature-number">01</span>
+
           <div>
+
             <h3>Konsep Dasar</h3>
+
             <p>Memahami dasar-dasar kimia.</p>
+
           </div>
+
         </div>
 
         <div class="feature-item">
+
           <span class="feature-number">02</span>
+
           <div>
+
             <h3>Eksplorasi Unsur</h3>
+
             <p>Mengenal unsur dalam tabel periodik.</p>
+
           </div>
+
         </div>
 
         <div class="feature-item">
+
           <span class="feature-number">03</span>
+
           <div>
+
             <h3>Praktikum</h3>
+
             <p>Belajar melalui pengamatan ilmiah.</p>
+
           </div>
+
         </div>
+
       </div>
+
     </section>
 
-    <!-- Profil / Tentang Kimia -->
+    <!-- Profil -->
+
     <section class="section profile-section" id="profil">
+
       <div class="container profile-grid">
+
         <div class="profile-visual">
+
           <img
+
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOYj_veqPaPwd1iKuM4eGUE5HXbGX67UkrNW-zpj7p0A&s=10"
+
             alt="Kegiatan penelitian di laboratorium"
+
             loading="lazy"
+
           >
+
           <div class="image-caption">
+
             <span class="caption-mark">✳</span>
+
             <span>Curiosity leads to discovery.</span>
+
           </div>
+
         </div>
 
         <div class="profile-content">
-          <span class="section-label">TENTANG KIMIA</span>
 
-          <h2>Mengenal materi dan perubahan di sekitar kita.</h2>
+          <span class="section-label">TENTANG KAMI</span>
+
+          <h2>Kimia lebih dekat dengan kehidupan.</h2>
 
           <p>
-            Kimia merupakan cabang ilmu pengetahuan alam yang mempelajari
-            materi, meliputi struktur, komposisi, sifat, serta perubahan
-            yang terjadi pada suatu zat. Ilmu kimia membantu kita memahami
-            bagaimana berbagai zat terbentuk dan berinteraksi satu sama lain.
+            Chemistry Lab adalah website pembelajaran yang dirancang untuk membantu pelajar
+            mengenal ilmu kimia dengan cara yang lebih jelas, terarah, dan dekat dengan kehidupan
+            sehari-hari. Kimia bukan hanya kumpulan rumus, tetapi juga ilmu yang menjelaskan
+            bagaimana materi tersusun, berubah, dan berinteraksi.
           </p>
 
           <p>
-            Dalam kehidupan sehari-hari, konsep kimia dapat ditemukan
-            pada berbagai peristiwa, seperti proses memasak makanan,
-            pembakaran bahan bakar, pembentukan karat pada besi,
-            penggunaan sabun, hingga reaksi yang terjadi di dalam tubuh
-            manusia.
+            Kami menyajikan pengenalan konsep dasar kimia, struktur atom, sistem periodik unsur,
+            reaksi kimia, serta contoh rumus sederhana. Materi disusun secara bertahap agar
+            pengunjung dapat membangun pemahaman dari dasar sebelum mempelajari topik yang lebih kompleks.
           </p>
 
-          <p>
-            Pembelajaran kimia mencakup berbagai bidang, antara lain
-            struktur atom, sistem periodik unsur, ikatan kimia,
-            stoikiometri, larutan, asam dan basa, termokimia,
-            kesetimbangan kimia, serta reaksi oksidasi-reduksi.
-          </p>
+          <div class="profile-highlights">
+            <article class="profile-highlight">
+              <span class="highlight-number">01</span>
+              <div>
+                <h3>Materi Terstruktur</h3>
+                <p>Topik disusun dari konsep dasar hingga pembahasan lanjutan agar proses belajar terasa runtut.</p>
+              </div>
+            </article>
+
+            <article class="profile-highlight">
+              <span class="highlight-number">02</span>
+              <div>
+                <h3>Kimia dalam Kehidupan</h3>
+                <p>Contoh air, udara, makanan, dan baterai membantu menghubungkan teori dengan hal yang kita temui setiap hari.</p>
+              </div>
+            </article>
+
+            <article class="profile-highlight">
+              <span class="highlight-number">03</span>
+              <div>
+                <h3>Eksplorasi dan Pengamatan</h3>
+                <p>Tabel periodik interaktif dan ilustrasi laboratorium mengajak pengunjung mengenal unsur serta proses ilmiah lebih jauh.</p>
+              </div>
+            </article>
+          </div>
 
           <blockquote>
             <span class="quote-mark">“</span>
-            <p>
-              Segala sesuatu di sekitar kita tersusun atas materi,
-              dan kimia membantu kita memahami bagaimana materi itu bekerja.
-            </p>
-            <cite>— Ilmu Kimia</cite>
+            <p>Memahami kimia berarti belajar melihat proses dan perubahan di balik hal-hal sederhana di sekitar kita.</p>
+            <cite>— Chemistry Lab</cite>
           </blockquote>
 
-          <a href="#materi" class="text-link">
-            Jelajahi materi <span>→</span>
-          </a>
+          <a href="#materi" class="text-link">Jelajahi materi <span>→</span></a>
+
         </div>
+
       </div>
+
     </section>
 
-    <!-- Daftar Materi -->
+    <!-- Materi -->
+
     <section class="section materials-section" id="materi">
+
       <div class="container">
+
         <div class="section-heading">
+
           <div>
+
             <span class="section-label">PUSAT PEMBELAJARAN</span>
+
             <h2>Materi untuk <span>dieksplorasi.</span></h2>
+
           </div>
+
           <p>
-            Pelajari setiap topik kimia secara bertahap dengan
-            pembahasan, konsep, dan contoh yang berbeda.
+
+            Mulai dari konsep paling dasar hingga penerapannya
+
+            dalam kehidupan sehari-hari.
+
           </p>
+
         </div>
 
         <div class="materials-grid">
 
-          <!-- Materi 1: Pengantar Ilmu Kimia -->
           <article class="material-card">
+
             <div class="material-card-top">
+
               <span class="material-icon icon-pink">⚗</span>
+
               <span class="material-index">01 / DASAR</span>
+
             </div>
 
             <h3>Pengantar Ilmu Kimia</h3>
 
             <p>
-              Mempelajari pengertian, ruang lingkup, sifat materi,
-              perubahan fisika dan kimia, serta metode ilmiah.
+
+              Mengenal pengertian kimia, materi, perubahan zat,
+
+              dan metode ilmiah.
+
             </p>
 
-            <a href="#pengantar-kimia" class="card-link">
-              Pelajari materi <span>↗</span>
-            </a>
+            <a href="#format-kimia" class="card-link">Pelajari konsep <span>↗</span></a>
+
           </article>
 
-          <!-- Materi 2: Sistem Periodik Unsur -->
           <article class="material-card">
+
             <div class="material-card-top">
-              <span class="material-icon icon-purple">◈</span>
-              <span class="material-index">02 / UNSUR</span>
+
+              <span class="material-icon icon-coral">◈</span>
+
+              <span class="material-index">02 / ATOM</span>
+
             </div>
 
-            <h3>Sistem Periodik Unsur</h3>
+            <h3>Struktur Atom</h3>
 
             <p>
-              Memahami pengelompokan unsur, golongan, periode,
-              konfigurasi elektron, dan sifat periodik unsur.
+
+              Memahami proton, neutron, elektron, nomor atom,
+
+              dan nomor massa.
+
             </p>
 
-            <a href="#sistem-periodik" class="card-link">
-              Pelajari materi <span>↗</span>
-            </a>
+            <a href="#format-kimia" class="card-link">Pelajari konsep <span>↗</span></a>
+
           </article>
 
-          <!-- Materi 3: Reaksi Kimia -->
           <article class="material-card">
+
             <div class="material-card-top">
+
+              <span class="material-icon icon-purple">⌬</span>
+
+              <span class="material-index">03 / UNSUR</span>
+
+            </div>
+
+            <h3>Sistem Periodik</h3>
+
+            <p>
+
+              Mengenal golongan, periode, dan karakteristik
+
+              berbagai unsur kimia.
+
+            </p>
+
+            <a href="#tabel-periodik" class="card-link">Jelajahi unsur <span>↗</span></a>
+
+          </article>
+
+          <article class="material-card">
+
+            <div class="material-card-top">
+
               <span class="material-icon icon-yellow">⟷</span>
-              <span class="material-index">03 / REAKSI</span>
+
+              <span class="material-index">04 / REAKSI</span>
+
             </div>
 
             <h3>Reaksi Kimia</h3>
 
             <p>
-              Mempelajari pereaksi, hasil reaksi, persamaan kimia,
-              penyetaraan reaksi, dan hukum kekekalan massa.
+
+              Mempelajari perubahan zat, persamaan reaksi,
+
+              dan hukum kekekalan massa.
+
             </p>
 
-            <a href="#reaksi-kimia" class="card-link">
-              Pelajari materi <span>↗</span>
-            </a>
+            <a href="#format-kimia" class="card-link">Pelajari konsep <span>↗</span></a>
+
           </article>
 
         </div>
+
+      </div>
+
+    </section>
+
+    <!-- Tabel periodik interaktif: lengkap 118 unsur -->
+    <section class="periodic-section" id="tabel-periodik">
+      <div class="container">
+        <div class="section-heading periodic-heading">
+          <div><span class="section-label">KENALI UNSURNYA</span><h2>Tabel Periodik <span>Interaktif.</span></h2></div>
+          <p>Klik kartu unsur untuk melihat nomor atom, massa atom, golongan, periode, dan informasi singkatnya.</p>
+        </div>
+        <div class="periodic-legend">
+          <span><i class="legend-pink"></i> Nonlogam</span><span><i class="legend-purple"></i> Gas mulia</span>
+          <span><i class="legend-coral"></i> Logam alkali</span><span><i class="legend-yellow"></i> Alkali tanah</span>
+          <span><i class="legend-green"></i> Metaloid</span><span><i class="legend-blue"></i> Halogen</span>
+          <span><i class="legend-transition"></i> Logam transisi</span><span><i class="legend-lanth"></i> Lantanida/aktinida</span>
+        </div>
+        <p class="scroll-hint">↔ Geser ke samping jika tabel tidak muat di layar.</p>
+        <div class="table-wrap"><div class="periodic-grid">
+<details class="element element-nonmetal" style="grid-column:1;grid-row:1">
+<summary aria-label="Hidrogen, nomor atom 1">
+<span class="atomic-number">1</span>
+<strong class="element-symbol">H</strong>
+<span class="element-name">Hidrogen</span>
+<span class="atomic-mass">1.008</span>
+</summary>
+<div class="element-info">
+<h3>Hidrogen (H)</h3>
+<p class="element-category">Nonlogam</p>
+<dl><div><dt>Nomor atom</dt><dd>1</dd></div><div><dt>Massa atom relatif</dt><dd>1.008</dd></div><div><dt>Periode</dt><dd>1</dd></div><div><dt>Kategori</dt><dd>Nonlogam</dd></div></dl>
+<p>Termasuk kelompok nonlogam. Sifat dan penggunaannya berbeda-beda; banyak yang penting bagi kehidupan atau senyawa kimia.</p>
+</div>
+</details><details class="element element-noble" style="grid-column:18;grid-row:1">
+<summary aria-label="Helium, nomor atom 2">
+<span class="atomic-number">2</span>
+<strong class="element-symbol">He</strong>
+<span class="element-name">Helium</span>
+<span class="atomic-mass">4.0026</span>
+</summary>
+<div class="element-info">
+<h3>Helium (He)</h3>
+<p class="element-category">Gas mulia</p>
+<dl><div><dt>Nomor atom</dt><dd>2</dd></div><div><dt>Massa atom relatif</dt><dd>4.0026</dd></div><div><dt>Periode</dt><dd>1</dd></div><div><dt>Kategori</dt><dd>Gas mulia</dd></div></dl>
+<p>Gas mulia dengan reaktivitas relatif rendah. Banyak digunakan untuk pencahayaan, atmosfer pelindung, atau aplikasi khusus.</p>
+</div>
+</details><details class="element element-alkali" style="grid-column:1;grid-row:2">
+<summary aria-label="Litium, nomor atom 3">
+<span class="atomic-number">3</span>
+<strong class="element-symbol">Li</strong>
+<span class="element-name">Litium</span>
+<span class="atomic-mass">6.94</span>
+</summary>
+<div class="element-info">
+<h3>Litium (Li)</h3>
+<p class="element-category">Logam alkali</p>
+<dl><div><dt>Nomor atom</dt><dd>3</dd></div><div><dt>Massa atom relatif</dt><dd>6.94</dd></div><div><dt>Periode</dt><dd>2</dd></div><div><dt>Kategori</dt><dd>Logam alkali</dd></div></dl>
+<p>Logam alkali yang umumnya sangat reaktif, terutama terhadap air. Penanganannya memerlukan kehati-hatian.</p>
+</div>
+</details><details class="element element-alkaline" style="grid-column:2;grid-row:2">
+<summary aria-label="Berilium, nomor atom 4">
+<span class="atomic-number">4</span>
+<strong class="element-symbol">Be</strong>
+<span class="element-name">Berilium</span>
+<span class="atomic-mass">9.0122</span>
+</summary>
+<div class="element-info">
+<h3>Berilium (Be)</h3>
+<p class="element-category">Logam alkali tanah</p>
+<dl><div><dt>Nomor atom</dt><dd>4</dd></div><div><dt>Massa atom relatif</dt><dd>9.0122</dd></div><div><dt>Periode</dt><dd>2</dd></div><div><dt>Kategori</dt><dd>Logam alkali tanah</dd></div></dl>
+<p>Logam alkali tanah yang membentuk banyak mineral dan senyawa penting dalam industri maupun kehidupan.</p>
+</div>
+</details><details class="element element-metalloid" style="grid-column:13;grid-row:2">
+<summary aria-label="Boron, nomor atom 5">
+<span class="atomic-number">5</span>
+<strong class="element-symbol">B</strong>
+<span class="element-name">Boron</span>
+<span class="atomic-mass">10.81</span>
+</summary>
+<div class="element-info">
+<h3>Boron (B)</h3>
+<p class="element-category">Metaloid</p>
+<dl><div><dt>Nomor atom</dt><dd>5</dd></div><div><dt>Massa atom relatif</dt><dd>10.81</dd></div><div><dt>Periode</dt><dd>2</dd></div><div><dt>Kategori</dt><dd>Metaloid</dd></div></dl>
+<p>Metaloid memiliki beberapa sifat di antara logam dan nonlogam; sejumlah di antaranya penting dalam semikonduktor.</p>
+</div>
+</details><details class="element element-nonmetal" style="grid-column:14;grid-row:2">
+<summary aria-label="Karbon, nomor atom 6">
+<span class="atomic-number">6</span>
+<strong class="element-symbol">C</strong>
+<span class="element-name">Karbon</span>
+<span class="atomic-mass">12.011</span>
+</summary>
+<div class="element-info">
+<h3>Karbon (C)</h3>
+<p class="element-category">Nonlogam</p>
+<dl><div><dt>Nomor atom</dt><dd>6</dd></div><div><dt>Massa atom relatif</dt><dd>12.011</dd></div><div><dt>Periode</dt><dd>2</dd></div><div><dt>Kategori</dt><dd>Nonlogam</dd></div></dl>
+<p>Termasuk kelompok nonlogam. Sifat dan penggunaannya berbeda-beda; banyak yang penting bagi kehidupan atau senyawa kimia.</p>
+</div>
+</details><details class="element element-nonmetal" style="grid-column:15;grid-row:2">
+<summary aria-label="Nitrogen, nomor atom 7">
+<span class="atomic-number">7</span>
+<strong class="element-symbol">N</strong>
+<span class="element-name">Nitrogen</span>
+<span class="atomic-mass">14.007</span>
+</summary>
+<div class="element-info">
+<h3>Nitrogen (N)</h3>
+<p class="element-category">Nonlogam</p>
+<dl><div><dt>Nomor atom</dt><dd>7</dd></div><div><dt>Massa atom relatif</dt><dd>14.007</dd></div><div><dt>Periode</dt><dd>2</dd></div><div><dt>Kategori</dt><dd>Nonlogam</dd></div></dl>
+<p>Termasuk kelompok nonlogam. Sifat dan penggunaannya berbeda-beda; banyak yang penting bagi kehidupan atau senyawa kimia.</p>
+</div>
+</details><details class="element element-nonmetal" style="grid-column:16;grid-row:2">
+<summary aria-label="Oksigen, nomor atom 8">
+<span class="atomic-number">8</span>
+<strong class="element-symbol">O</strong>
+<span class="element-name">Oksigen</span>
+<span class="atomic-mass">15.999</span>
+</summary>
+<div class="element-info">
+<h3>Oksigen (O)</h3>
+<p class="element-category">Nonlogam</p>
+<dl><div><dt>Nomor atom</dt><dd>8</dd></div><div><dt>Massa atom relatif</dt><dd>15.999</dd></div><div><dt>Periode</dt><dd>2</dd></div><div><dt>Kategori</dt><dd>Nonlogam</dd></div></dl>
+<p>Termasuk kelompok nonlogam. Sifat dan penggunaannya berbeda-beda; banyak yang penting bagi kehidupan atau senyawa kimia.</p>
+</div>
+</details><details class="element element-halogen" style="grid-column:17;grid-row:2">
+<summary aria-label="Fluorin, nomor atom 9">
+<span class="atomic-number">9</span>
+<strong class="element-symbol">F</strong>
+<span class="element-name">Fluorin</span>
+<span class="atomic-mass">18.998</span>
+</summary>
+<div class="element-info">
+<h3>Fluorin (F)</h3>
+<p class="element-category">Halogen</p>
+<dl><div><dt>Nomor atom</dt><dd>9</dd></div><div><dt>Massa atom relatif</dt><dd>18.998</dd></div><div><dt>Periode</dt><dd>2</dd></div><div><dt>Kategori</dt><dd>Halogen</dd></div></dl>
+<p>Halogen merupakan kelompok nonlogam reaktif yang banyak membentuk garam dan senyawa dengan unsur lain.</p>
+</div>
+</details><details class="element element-noble" style="grid-column:18;grid-row:2">
+<summary aria-label="Neon, nomor atom 10">
+<span class="atomic-number">10</span>
+<strong class="element-symbol">Ne</strong>
+<span class="element-name">Neon</span>
+<span class="atomic-mass">20.180</span>
+</summary>
+<div class="element-info">
+<h3>Neon (Ne)</h3>
+<p class="element-category">Gas mulia</p>
+<dl><div><dt>Nomor atom</dt><dd>10</dd></div><div><dt>Massa atom relatif</dt><dd>20.180</dd></div><div><dt>Periode</dt><dd>2</dd></div><div><dt>Kategori</dt><dd>Gas mulia</dd></div></dl>
+<p>Gas mulia dengan reaktivitas relatif rendah. Banyak digunakan untuk pencahayaan, atmosfer pelindung, atau aplikasi khusus.</p>
+</div>
+</details><details class="element element-alkali" style="grid-column:1;grid-row:3">
+<summary aria-label="Natrium, nomor atom 11">
+<span class="atomic-number">11</span>
+<strong class="element-symbol">Na</strong>
+<span class="element-name">Natrium</span>
+<span class="atomic-mass">22.990</span>
+</summary>
+<div class="element-info">
+<h3>Natrium (Na)</h3>
+<p class="element-category">Logam alkali</p>
+<dl><div><dt>Nomor atom</dt><dd>11</dd></div><div><dt>Massa atom relatif</dt><dd>22.990</dd></div><div><dt>Periode</dt><dd>3</dd></div><div><dt>Kategori</dt><dd>Logam alkali</dd></div></dl>
+<p>Logam alkali yang umumnya sangat reaktif, terutama terhadap air. Penanganannya memerlukan kehati-hatian.</p>
+</div>
+</details><details class="element element-alkaline" style="grid-column:2;grid-row:3">
+<summary aria-label="Magnesium, nomor atom 12">
+<span class="atomic-number">12</span>
+<strong class="element-symbol">Mg</strong>
+<span class="element-name">Magnesium</span>
+<span class="atomic-mass">24.305</span>
+</summary>
+<div class="element-info">
+<h3>Magnesium (Mg)</h3>
+<p class="element-category">Logam alkali tanah</p>
+<dl><div><dt>Nomor atom</dt><dd>12</dd></div><div><dt>Massa atom relatif</dt><dd>24.305</dd></div><div><dt>Periode</dt><dd>3</dd></div><div><dt>Kategori</dt><dd>Logam alkali tanah</dd></div></dl>
+<p>Logam alkali tanah yang membentuk banyak mineral dan senyawa penting dalam industri maupun kehidupan.</p>
+</div>
+</details><details class="element element-post" style="grid-column:13;grid-row:3">
+<summary aria-label="Aluminium, nomor atom 13">
+<span class="atomic-number">13</span>
+<strong class="element-symbol">Al</strong>
+<span class="element-name">Aluminium</span>
+<span class="atomic-mass">26.982</span>
+</summary>
+<div class="element-info">
+<h3>Aluminium (Al)</h3>
+<p class="element-category">Logam pascatransisi</p>
+<dl><div><dt>Nomor atom</dt><dd>13</dd></div><div><dt>Massa atom relatif</dt><dd>26.982</dd></div><div><dt>Periode</dt><dd>3</dd></div><div><dt>Kategori</dt><dd>Logam pascatransisi</dd></div></dl>
+<p>Logam pascatransisi dengan sifat yang bervariasi; digunakan dalam paduan, elektronik, dan berbagai proses industri.</p>
+</div>
+</details><details class="element element-metalloid" style="grid-column:14;grid-row:3">
+<summary aria-label="Silikon, nomor atom 14">
+<span class="atomic-number">14</span>
+<strong class="element-symbol">Si</strong>
+<span class="element-name">Silikon</span>
+<span class="atomic-mass">28.085</span>
+</summary>
+<div class="element-info">
+<h3>Silikon (Si)</h3>
+<p class="element-category">Metaloid</p>
+<dl><div><dt>Nomor atom</dt><dd>14</dd></div><div><dt>Massa atom relatif</dt><dd>28.085</dd></div><div><dt>Periode</dt><dd>3</dd></div><div><dt>Kategori</dt><dd>Metaloid</dd></div></dl>
+<p>Metaloid memiliki beberapa sifat di antara logam dan nonlogam; sejumlah di antaranya penting dalam semikonduktor.</p>
+</div>
+</details><details class="element element-nonmetal" style="grid-column:15;grid-row:3">
+<summary aria-label="Fosfor, nomor atom 15">
+<span class="atomic-number">15</span>
+<strong class="element-symbol">P</strong>
+<span class="element-name">Fosfor</span>
+<span class="atomic-mass">30.974</span>
+</summary>
+<div class="element-info">
+<h3>Fosfor (P)</h3>
+<p class="element-category">Nonlogam</p>
+<dl><div><dt>Nomor atom</dt><dd>15</dd></div><div><dt>Massa atom relatif</dt><dd>30.974</dd></div><div><dt>Periode</dt><dd>3</dd></div><div><dt>Kategori</dt><dd>Nonlogam</dd></div></dl>
+<p>Termasuk kelompok nonlogam. Sifat dan penggunaannya berbeda-beda; banyak yang penting bagi kehidupan atau senyawa kimia.</p>
+</div>
+</details><details class="element element-nonmetal" style="grid-column:16;grid-row:3">
+<summary aria-label="Belerang, nomor atom 16">
+<span class="atomic-number">16</span>
+<strong class="element-symbol">S</strong>
+<span class="element-name">Belerang</span>
+<span class="atomic-mass">32.06</span>
+</summary>
+<div class="element-info">
+<h3>Belerang (S)</h3>
+<p class="element-category">Nonlogam</p>
+<dl><div><dt>Nomor atom</dt><dd>16</dd></div><div><dt>Massa atom relatif</dt><dd>32.06</dd></div><div><dt>Periode</dt><dd>3</dd></div><div><dt>Kategori</dt><dd>Nonlogam</dd></div></dl>
+<p>Termasuk kelompok nonlogam. Sifat dan penggunaannya berbeda-beda; banyak yang penting bagi kehidupan atau senyawa kimia.</p>
+</div>
+</details><details class="element element-halogen" style="grid-column:17;grid-row:3">
+<summary aria-label="Klorin, nomor atom 17">
+<span class="atomic-number">17</span>
+<strong class="element-symbol">Cl</strong>
+<span class="element-name">Klorin</span>
+<span class="atomic-mass">35.45</span>
+</summary>
+<div class="element-info">
+<h3>Klorin (Cl)</h3>
+<p class="element-category">Halogen</p>
+<dl><div><dt>Nomor atom</dt><dd>17</dd></div><div><dt>Massa atom relatif</dt><dd>35.45</dd></div><div><dt>Periode</dt><dd>3</dd></div><div><dt>Kategori</dt><dd>Halogen</dd></div></dl>
+<p>Halogen merupakan kelompok nonlogam reaktif yang banyak membentuk garam dan senyawa dengan unsur lain.</p>
+</div>
+</details><details class="element element-noble" style="grid-column:18;grid-row:3">
+<summary aria-label="Argon, nomor atom 18">
+<span class="atomic-number">18</span>
+<strong class="element-symbol">Ar</strong>
+<span class="element-name">Argon</span>
+<span class="atomic-mass">39.948</span>
+</summary>
+<div class="element-info">
+<h3>Argon (Ar)</h3>
+<p class="element-category">Gas mulia</p>
+<dl><div><dt>Nomor atom</dt><dd>18</dd></div><div><dt>Massa atom relatif</dt><dd>39.948</dd></div><div><dt>Periode</dt><dd>3</dd></div><div><dt>Kategori</dt><dd>Gas mulia</dd></div></dl>
+<p>Gas mulia dengan reaktivitas relatif rendah. Banyak digunakan untuk pencahayaan, atmosfer pelindung, atau aplikasi khusus.</p>
+</div>
+</details><details class="element element-alkali" style="grid-column:1;grid-row:4">
+<summary aria-label="Kalium, nomor atom 19">
+<span class="atomic-number">19</span>
+<strong class="element-symbol">K</strong>
+<span class="element-name">Kalium</span>
+<span class="atomic-mass">39.098</span>
+</summary>
+<div class="element-info">
+<h3>Kalium (K)</h3>
+<p class="element-category">Logam alkali</p>
+<dl><div><dt>Nomor atom</dt><dd>19</dd></div><div><dt>Massa atom relatif</dt><dd>39.098</dd></div><div><dt>Periode</dt><dd>4</dd></div><div><dt>Kategori</dt><dd>Logam alkali</dd></div></dl>
+<p>Logam alkali yang umumnya sangat reaktif, terutama terhadap air. Penanganannya memerlukan kehati-hatian.</p>
+</div>
+</details><details class="element element-alkaline" style="grid-column:2;grid-row:4">
+<summary aria-label="Kalsium, nomor atom 20">
+<span class="atomic-number">20</span>
+<strong class="element-symbol">Ca</strong>
+<span class="element-name">Kalsium</span>
+<span class="atomic-mass">40.078</span>
+</summary>
+<div class="element-info">
+<h3>Kalsium (Ca)</h3>
+<p class="element-category">Logam alkali tanah</p>
+<dl><div><dt>Nomor atom</dt><dd>20</dd></div><div><dt>Massa atom relatif</dt><dd>40.078</dd></div><div><dt>Periode</dt><dd>4</dd></div><div><dt>Kategori</dt><dd>Logam alkali tanah</dd></div></dl>
+<p>Logam alkali tanah yang membentuk banyak mineral dan senyawa penting dalam industri maupun kehidupan.</p>
+</div>
+</details><details class="element element-transition" style="grid-column:3;grid-row:4">
+<summary aria-label="Skandium, nomor atom 21">
+<span class="atomic-number">21</span>
+<strong class="element-symbol">Sc</strong>
+<span class="element-name">Skandium</span>
+<span class="atomic-mass">44.956</span>
+</summary>
+<div class="element-info">
+<h3>Skandium (Sc)</h3>
+<p class="element-category">Logam transisi</p>
+<dl><div><dt>Nomor atom</dt><dd>21</dd></div><div><dt>Massa atom relatif</dt><dd>44.956</dd></div><div><dt>Periode</dt><dd>4</dd></div><div><dt>Kategori</dt><dd>Logam transisi</dd></div></dl>
+<p>Logam transisi umumnya kuat, dapat membentuk beragam senyawa, dan banyak dimanfaatkan dalam paduan serta katalis.</p>
+</div>
+</details><details class="element element-transition" style="grid-column:4;grid-row:4">
+<summary aria-label="Titanium, nomor atom 22">
+<span class="atomic-number">22</span>
+<strong class="element-symbol">Ti</strong>
+<span class="element-name">Titanium</span>
+<span class="atomic-mass">47.867</span>
+</summary>
+<div class="element-info">
+<h3>Titanium (Ti)</h3>
+<p class="element-category">Logam transisi</p>
+<dl><div><dt>Nomor atom</dt><dd>22</dd></div><div><dt>Massa atom relatif</dt><dd>47.867</dd></div><div><dt>Periode</dt><dd>4</dd></div><div><dt>Kategori</dt><dd>Logam transisi</dd></div></dl>
+<p>Logam transisi umumnya kuat, dapat membentuk beragam senyawa, dan banyak dimanfaatkan dalam paduan serta katalis.</p>
+</div>
+</details><details class="element element-transition" style="grid-column:5;grid-row:4">
+<summary aria-label="Vanadium, nomor atom 23">
+<span class="atomic-number">23</span>
+<strong class="element-symbol">V</strong>
+<span class="element-name">Vanadium</span>
+<span class="atomic-mass">50.942</span>
+</summary>
+<div class="element-info">
+<h3>Vanadium (V)</h3>
+<p class="element-category">Logam transisi</p>
+<dl><div><dt>Nomor atom</dt><dd>23</dd></div><div><dt>Massa atom relatif</dt><dd>50.942</dd></div><div><dt>Periode</dt><dd>4</dd></div><div><dt>Kategori</dt><dd>Logam transisi</dd></div></dl>
+<p>Logam transisi umumnya kuat, dapat membentuk beragam senyawa, dan banyak dimanfaatkan dalam paduan serta katalis.</p>
+</div>
+</details><details class="element element-transition" style="grid-column:6;grid-row:4">
+<summary aria-label="Kromium, nomor atom 24">
+<span class="atomic-number">24</span>
+<strong class="element-symbol">Cr</strong>
+<span class="element-name">Kromium</span>
+<span class="atomic-mass">51.996</span>
+</summary>
+<div class="element-info">
+<h3>Kromium (Cr)</h3>
+<p class="element-category">Logam transisi</p>
+<dl><div><dt>Nomor atom</dt><dd>24</dd></div><div><dt>Massa atom relatif</dt><dd>51.996</dd></div><div><dt>Periode</dt><dd>4</dd></div><div><dt>Kategori</dt><dd>Logam transisi</dd></div></dl>
+<p>Logam transisi umumnya kuat, dapat membentuk beragam senyawa, dan banyak dimanfaatkan dalam paduan serta katalis.</p>
+</div>
+</details><details class="element element-transition" style="grid-column:7;grid-row:4">
+<summary aria-label="Mangan, nomor atom 25">
+<span class="atomic-number">25</span>
+<strong class="element-symbol">Mn</strong>
+<span class="element-name">Mangan</span>
+<span class="atomic-mass">54.938</span>
+</summary>
+<div class="element-info">
+<h3>Mangan (Mn)</h3>
+<p class="element-category">Logam transisi</p>
+<dl><div><dt>Nomor atom</dt><dd>25</dd></div><div><dt>Massa atom relatif</dt><dd>54.938</dd></div><div><dt>Periode</dt><dd>4</dd></div><div><dt>Kategori</dt><dd>Logam transisi</dd></div></dl>
+<p>Logam transisi umumnya kuat, dapat membentuk beragam senyawa, dan banyak dimanfaatkan dalam paduan serta katalis.</p>
+</div>
+</details><details class="element element-transition" style="grid-column:8;grid-row:4">
+<summary aria-label="Besi, nomor atom 26">
+<span class="atomic-number">26</span>
+<strong class="element-symbol">Fe</strong>
+<span class="element-name">Besi</span>
+<span class="atomic-mass">55.845</span>
+</summary>
+<div class="element-info">
+<h3>Besi (Fe)</h3>
+<p class="element-category">Logam transisi</p>
+<dl><div><dt>Nomor atom</dt><dd>26</dd></div><div><dt>Massa atom relatif</dt><dd>55.845</dd></div><div><dt>Periode</dt><dd>4</dd></div><div><dt>Kategori</dt><dd>Logam transisi</dd></div></dl>
+<p>Logam transisi umumnya kuat, dapat membentuk beragam senyawa, dan banyak dimanfaatkan dalam paduan serta katalis.</p>
+</div>
+</details><details class="element element-transition" style="grid-column:9;grid-row:4">
+<summary aria-label="Kobalt, nomor atom 27">
+<span class="atomic-number">27</span>
+<strong class="element-symbol">Co</strong>
+<span class="element-name">Kobalt</span>
+<span class="atomic-mass">58.933</span>
+</summary>
+<div class="element-info">
+<h3>Kobalt (Co)</h3>
+<p class="element-category">Logam transisi</p>
+<dl><div><dt>Nomor atom</dt><dd>27</dd></div><div><dt>Massa atom relatif</dt><dd>58.933</dd></div><div><dt>Periode</dt><dd>4</dd></div><div><dt>Kategori</dt><dd>Logam transisi</dd></div></dl>
+<p>Logam transisi umumnya kuat, dapat membentuk beragam senyawa, dan banyak dimanfaatkan dalam paduan serta katalis.</p>
+</div>
+</details><details class="element element-transition" style="grid-column:10;grid-row:4">
+<summary aria-label="Nikel, nomor atom 28">
+<span class="atomic-number">28</span>
+<strong class="element-symbol">Ni</strong>
+<span class="element-name">Nikel</span>
+<span class="atomic-mass">58.693</span>
+</summary>
+<div class="element-info">
+<h3>Nikel (Ni)</h3>
+<p class="element-category">Logam transisi</p>
+<dl><div><dt>Nomor atom</dt><dd>28</dd></div><div><dt>Massa atom relatif</dt><dd>58.693</dd></div><div><dt>Periode</dt><dd>4</dd></div><div><dt>Kategori</dt><dd>Logam transisi</dd></div></dl>
+<p>Logam transisi umumnya kuat, dapat membentuk beragam senyawa, dan banyak dimanfaatkan dalam paduan serta katalis.</p>
+</div>
+</details><details class="element element-transition" style="grid-column:11;grid-row:4">
+<summary aria-label="Tembaga, nomor atom 29">
+<span class="atomic-number">29</span>
+<strong class="element-symbol">Cu</strong>
+<span class="element-name">Tembaga</span>
+<span class="atomic-mass">63.546</span>
+</summary>
+<div class="element-info">
+<h3>Tembaga (Cu)</h3>
+<p class="element-category">Logam transisi</p>
+<dl><div><dt>Nomor atom</dt><dd>29</dd></div><div><dt>Massa atom relatif</dt><dd>63.546</dd></div><div><dt>Periode</dt><dd>4</dd></div><div><dt>Kategori</dt><dd>Logam transisi</dd></div></dl>
+<p>Logam transisi umumnya kuat, dapat membentuk beragam senyawa, dan banyak dimanfaatkan dalam paduan serta katalis.</p>
+</div>
+</details><details class="element element-transition" style="grid-column:12;grid-row:4">
+<summary aria-label="Seng, nomor atom 30">
+<span class="atomic-number">30</span>
+<strong class="element-symbol">Zn</strong>
+<span class="element-name">Seng</span>
+<span class="atomic-mass">65.38</span>
+</summary>
+<div class="element-info">
+<h3>Seng (Zn)</h3>
+<p class="element-category">Logam transisi</p>
+<dl><div><dt>Nomor atom</dt><dd>30</dd></div><div><dt>Massa atom relatif</dt><dd>65.38</dd></div><div><dt>Periode</dt><dd>4</dd></div><div><dt>Kategori</dt><dd>Logam transisi</dd></div></dl>
+<p>Logam transisi umumnya kuat, dapat membentuk beragam senyawa, dan banyak dimanfaatkan dalam paduan serta katalis.</p>
+</div>
+</details><details class="element element-post" style="grid-column:13;grid-row:4">
+<summary aria-label="Galium, nomor atom 31">
+<span class="atomic-number">31</span>
+<strong class="element-symbol">Ga</strong>
+<span class="element-name">Galium</span>
+<span class="atomic-mass">69.723</span>
+</summary>
+<div class="element-info">
+<h3>Galium (Ga)</h3>
+<p class="element-category">Logam pascatransisi</p>
+<dl><div><dt>Nomor atom</dt><dd>31</dd></div><div><dt>Massa atom relatif</dt><dd>69.723</dd></div><div><dt>Periode</dt><dd>4</dd></div><div><dt>Kategori</dt><dd>Logam pascatransisi</dd></div></dl>
+<p>Logam pascatransisi dengan sifat yang bervariasi; digunakan dalam paduan, elektronik, dan berbagai proses industri.</p>
+</div>
+</details><details class="element element-metalloid" style="grid-column:14;grid-row:4">
+<summary aria-label="Germanium, nomor atom 32">
+<span class="atomic-number">32</span>
+<strong class="element-symbol">Ge</strong>
+<span class="element-name">Germanium</span>
+<span class="atomic-mass">72.630</span>
+</summary>
+<div class="element-info">
+<h3>Germanium (Ge)</h3>
+<p class="element-category">Metaloid</p>
+<dl><div><dt>Nomor atom</dt><dd>32</dd></div><div><dt>Massa atom relatif</dt><dd>72.630</dd></div><div><dt>Periode</dt><dd>4</dd></div><div><dt>Kategori</dt><dd>Metaloid</dd></div></dl>
+<p>Metaloid memiliki beberapa sifat di antara logam dan nonlogam; sejumlah di antaranya penting dalam semikonduktor.</p>
+</div>
+</details><details class="element element-metalloid" style="grid-column:15;grid-row:4">
+<summary aria-label="Arsen, nomor atom 33">
+<span class="atomic-number">33</span>
+<strong class="element-symbol">As</strong>
+<span class="element-name">Arsen</span>
+<span class="atomic-mass">74.922</span>
+</summary>
+<div class="element-info">
+<h3>Arsen (As)</h3>
+<p class="element-category">Metaloid</p>
+<dl><div><dt>Nomor atom</dt><dd>33</dd></div><div><dt>Massa atom relatif</dt><dd>74.922</dd></div><div><dt>Periode</dt><dd>4</dd></div><div><dt>Kategori</dt><dd>Metaloid</dd></div></dl>
+<p>Metaloid memiliki beberapa sifat di antara logam dan nonlogam; sejumlah di antaranya penting dalam semikonduktor.</p>
+</div>
+</details><details class="element element-nonmetal" style="grid-column:16;grid-row:4">
+<summary aria-label="Selenium, nomor atom 34">
+<span class="atomic-number">34</span>
+<strong class="element-symbol">Se</strong>
+<span class="element-name">Selenium</span>
+<span class="atomic-mass">78.971</span>
+</summary>
+<div class="element-info">
+<h3>Selenium (Se)</h3>
+<p class="element-category">Nonlogam</p>
+<dl><div><dt>Nomor atom</dt><dd>34</dd></div><div><dt>Massa atom relatif</dt><dd>78.971</dd></div><div><dt>Periode</dt><dd>4</dd></div><div><dt>Kategori</dt><dd>Nonlogam</dd></div></dl>
+<p>Termasuk kelompok nonlogam. Sifat dan penggunaannya berbeda-beda; banyak yang penting bagi kehidupan atau senyawa kimia.</p>
+</div>
+</details><details class="element element-halogen" style="grid-column:17;grid-row:4">
+<summary aria-label="Bromin, nomor atom 35">
+<span class="atomic-number">35</span>
+<strong class="element-symbol">Br</strong>
+<span class="element-name">Bromin</span>
+<span class="atomic-mass">79.904</span>
+</summary>
+<div class="element-info">
+<h3>Bromin (Br)</h3>
+<p class="element-category">Halogen</p>
+<dl><div><dt>Nomor atom</dt><dd>35</dd></div><div><dt>Massa atom relatif</dt><dd>79.904</dd></div><div><dt>Periode</dt><dd>4</dd></div><div><dt>Kategori</dt><dd>Halogen</dd></div></dl>
+<p>Halogen merupakan kelompok nonlogam reaktif yang banyak membentuk garam dan senyawa dengan unsur lain.</p>
+</div>
+</details><details class="element element-noble" style="grid-column:18;grid-row:4">
+<summary aria-label="Kripton, nomor atom 36">
+<span class="atomic-number">36</span>
+<strong class="element-symbol">Kr</strong>
+<span class="element-name">Kripton</span>
+<span class="atomic-mass">83.798</span>
+</summary>
+<div class="element-info">
+<h3>Kripton (Kr)</h3>
+<p class="element-category">Gas mulia</p>
+<dl><div><dt>Nomor atom</dt><dd>36</dd></div><div><dt>Massa atom relatif</dt><dd>83.798</dd></div><div><dt>Periode</dt><dd>4</dd></div><div><dt>Kategori</dt><dd>Gas mulia</dd></div></dl>
+<p>Gas mulia dengan reaktivitas relatif rendah. Banyak digunakan untuk pencahayaan, atmosfer pelindung, atau aplikasi khusus.</p>
+</div>
+</details><details class="element element-alkali" style="grid-column:1;grid-row:5">
+<summary aria-label="Rubidium, nomor atom 37">
+<span class="atomic-number">37</span>
+<strong class="element-symbol">Rb</strong>
+<span class="element-name">Rubidium</span>
+<span class="atomic-mass">85.468</span>
+</summary>
+<div class="element-info">
+<h3>Rubidium (Rb)</h3>
+<p class="element-category">Logam alkali</p>
+<dl><div><dt>Nomor atom</dt><dd>37</dd></div><div><dt>Massa atom relatif</dt><dd>85.468</dd></div><div><dt>Periode</dt><dd>5</dd></div><div><dt>Kategori</dt><dd>Logam alkali</dd></div></dl>
+<p>Logam alkali yang umumnya sangat reaktif, terutama terhadap air. Penanganannya memerlukan kehati-hatian.</p>
+</div>
+</details><details class="element element-alkaline" style="grid-column:2;grid-row:5">
+<summary aria-label="Stronsium, nomor atom 38">
+<span class="atomic-number">38</span>
+<strong class="element-symbol">Sr</strong>
+<span class="element-name">Stronsium</span>
+<span class="atomic-mass">87.62</span>
+</summary>
+<div class="element-info">
+<h3>Stronsium (Sr)</h3>
+<p class="element-category">Logam alkali tanah</p>
+<dl><div><dt>Nomor atom</dt><dd>38</dd></div><div><dt>Massa atom relatif</dt><dd>87.62</dd></div><div><dt>Periode</dt><dd>5</dd></div><div><dt>Kategori</dt><dd>Logam alkali tanah</dd></div></dl>
+<p>Logam alkali tanah yang membentuk banyak mineral dan senyawa penting dalam industri maupun kehidupan.</p>
+</div>
+</details><details class="element element-transition" style="grid-column:3;grid-row:5">
+<summary aria-label="Itrium, nomor atom 39">
+<span class="atomic-number">39</span>
+<strong class="element-symbol">Y</strong>
+<span class="element-name">Itrium</span>
+<span class="atomic-mass">88.906</span>
+</summary>
+<div class="element-info">
+<h3>Itrium (Y)</h3>
+<p class="element-category">Logam transisi</p>
+<dl><div><dt>Nomor atom</dt><dd>39</dd></div><div><dt>Massa atom relatif</dt><dd>88.906</dd></div><div><dt>Periode</dt><dd>5</dd></div><div><dt>Kategori</dt><dd>Logam transisi</dd></div></dl>
+<p>Logam transisi umumnya kuat, dapat membentuk beragam senyawa, dan banyak dimanfaatkan dalam paduan serta katalis.</p>
+</div>
+</details><details class="element element-transition" style="grid-column:4;grid-row:5">
+<summary aria-label="Zirkonium, nomor atom 40">
+<span class="atomic-number">40</span>
+<strong class="element-symbol">Zr</strong>
+<span class="element-name">Zirkonium</span>
+<span class="atomic-mass">91.224</span>
+</summary>
+<div class="element-info">
+<h3>Zirkonium (Zr)</h3>
+<p class="element-category">Logam transisi</p>
+<dl><div><dt>Nomor atom</dt><dd>40</dd></div><div><dt>Massa atom relatif</dt><dd>91.224</dd></div><div><dt>Periode</dt><dd>5</dd></div><div><dt>Kategori</dt><dd>Logam transisi</dd></div></dl>
+<p>Logam transisi umumnya kuat, dapat membentuk beragam senyawa, dan banyak dimanfaatkan dalam paduan serta katalis.</p>
+</div>
+</details><details class="element element-transition" style="grid-column:5;grid-row:5">
+<summary aria-label="Niobium, nomor atom 41">
+<span class="atomic-number">41</span>
+<strong class="element-symbol">Nb</strong>
+<span class="element-name">Niobium</span>
+<span class="atomic-mass">92.906</span>
+</summary>
+<div class="element-info">
+<h3>Niobium (Nb)</h3>
+<p class="element-category">Logam transisi</p>
+<dl><div><dt>Nomor atom</dt><dd>41</dd></div><div><dt>Massa atom relatif</dt><dd>92.906</dd></div><div><dt>Periode</dt><dd>5</dd></div><div><dt>Kategori</dt><dd>Logam transisi</dd></div></dl>
+<p>Logam transisi umumnya kuat, dapat membentuk beragam senyawa, dan banyak dimanfaatkan dalam paduan serta katalis.</p>
+</div>
+</details><details class="element element-transition" style="grid-column:6;grid-row:5">
+<summary aria-label="Molibdenum, nomor atom 42">
+<span class="atomic-number">42</span>
+<strong class="element-symbol">Mo</strong>
+<span class="element-name">Molibdenum</span>
+<span class="atomic-mass">95.95</span>
+</summary>
+<div class="element-info">
+<h3>Molibdenum (Mo)</h3>
+<p class="element-category">Logam transisi</p>
+<dl><div><dt>Nomor atom</dt><dd>42</dd></div><div><dt>Massa atom relatif</dt><dd>95.95</dd></div><div><dt>Periode</dt><dd>5</dd></div><div><dt>Kategori</dt><dd>Logam transisi</dd></div></dl>
+<p>Logam transisi umumnya kuat, dapat membentuk beragam senyawa, dan banyak dimanfaatkan dalam paduan serta katalis.</p>
+</div>
+</details><details class="element element-transition" style="grid-column:7;grid-row:5">
+<summary aria-label="Teknesium, nomor atom 43">
+<span class="atomic-number">43</span>
+<strong class="element-symbol">Tc</strong>
+<span class="element-name">Teknesium</span>
+<span class="atomic-mass">[98]</span>
+</summary>
+<div class="element-info">
+<h3>Teknesium (Tc)</h3>
+<p class="element-category">Logam transisi</p>
+<dl><div><dt>Nomor atom</dt><dd>43</dd></div><div><dt>Massa atom relatif</dt><dd>[98]</dd></div><div><dt>Periode</dt><dd>5</dd></div><div><dt>Kategori</dt><dd>Logam transisi</dd></div></dl>
+<p>Logam transisi umumnya kuat, dapat membentuk beragam senyawa, dan banyak dimanfaatkan dalam paduan serta katalis.</p>
+</div>
+</details><details class="element element-transition" style="grid-column:8;grid-row:5">
+<summary aria-label="Rutenium, nomor atom 44">
+<span class="atomic-number">44</span>
+<strong class="element-symbol">Ru</strong>
+<span class="element-name">Rutenium</span>
+<span class="atomic-mass">101.07</span>
+</summary>
+<div class="element-info">
+<h3>Rutenium (Ru)</h3>
+<p class="element-category">Logam transisi</p>
+<dl><div><dt>Nomor atom</dt><dd>44</dd></div><div><dt>Massa atom relatif</dt><dd>101.07</dd></div><div><dt>Periode</dt><dd>5</dd></div><div><dt>Kategori</dt><dd>Logam transisi</dd></div></dl>
+<p>Logam transisi umumnya kuat, dapat membentuk beragam senyawa, dan banyak dimanfaatkan dalam paduan serta katalis.</p>
+</div>
+</details><details class="element element-transition" style="grid-column:9;grid-row:5">
+<summary aria-label="Rodium, nomor atom 45">
+<span class="atomic-number">45</span>
+<strong class="element-symbol">Rh</strong>
+<span class="element-name">Rodium</span>
+<span class="atomic-mass">102.91</span>
+</summary>
+<div class="element-info">
+<h3>Rodium (Rh)</h3>
+<p class="element-category">Logam transisi</p>
+<dl><div><dt>Nomor atom</dt><dd>45</dd></div><div><dt>Massa atom relatif</dt><dd>102.91</dd></div><div><dt>Periode</dt><dd>5</dd></div><div><dt>Kategori</dt><dd>Logam transisi</dd></div></dl>
+<p>Logam transisi umumnya kuat, dapat membentuk beragam senyawa, dan banyak dimanfaatkan dalam paduan serta katalis.</p>
+</div>
+</details><details class="element element-transition" style="grid-column:10;grid-row:5">
+<summary aria-label="Paladium, nomor atom 46">
+<span class="atomic-number">46</span>
+<strong class="element-symbol">Pd</strong>
+<span class="element-name">Paladium</span>
+<span class="atomic-mass">106.42</span>
+</summary>
+<div class="element-info">
+<h3>Paladium (Pd)</h3>
+<p class="element-category">Logam transisi</p>
+<dl><div><dt>Nomor atom</dt><dd>46</dd></div><div><dt>Massa atom relatif</dt><dd>106.42</dd></div><div><dt>Periode</dt><dd>5</dd></div><div><dt>Kategori</dt><dd>Logam transisi</dd></div></dl>
+<p>Logam transisi umumnya kuat, dapat membentuk beragam senyawa, dan banyak dimanfaatkan dalam paduan serta katalis.</p>
+</div>
+</details><details class="element element-transition" style="grid-column:11;grid-row:5">
+<summary aria-label="Perak, nomor atom 47">
+<span class="atomic-number">47</span>
+<strong class="element-symbol">Ag</strong>
+<span class="element-name">Perak</span>
+<span class="atomic-mass">107.87</span>
+</summary>
+<div class="element-info">
+<h3>Perak (Ag)</h3>
+<p class="element-category">Logam transisi</p>
+<dl><div><dt>Nomor atom</dt><dd>47</dd></div><div><dt>Massa atom relatif</dt><dd>107.87</dd></div><div><dt>Periode</dt><dd>5</dd></div><div><dt>Kategori</dt><dd>Logam transisi</dd></div></dl>
+<p>Logam transisi umumnya kuat, dapat membentuk beragam senyawa, dan banyak dimanfaatkan dalam paduan serta katalis.</p>
+</div>
+</details><details class="element element-transition" style="grid-column:12;grid-row:5">
+<summary aria-label="Kadmium, nomor atom 48">
+<span class="atomic-number">48</span>
+<strong class="element-symbol">Cd</strong>
+<span class="element-name">Kadmium</span>
+<span class="atomic-mass">112.41</span>
+</summary>
+<div class="element-info">
+<h3>Kadmium (Cd)</h3>
+<p class="element-category">Logam transisi</p>
+<dl><div><dt>Nomor atom</dt><dd>48</dd></div><div><dt>Massa atom relatif</dt><dd>112.41</dd></div><div><dt>Periode</dt><dd>5</dd></div><div><dt>Kategori</dt><dd>Logam transisi</dd></div></dl>
+<p>Logam transisi umumnya kuat, dapat membentuk beragam senyawa, dan banyak dimanfaatkan dalam paduan serta katalis.</p>
+</div>
+</details><details class="element element-post" style="grid-column:13;grid-row:5">
+<summary aria-label="Indium, nomor atom 49">
+<span class="atomic-number">49</span>
+<strong class="element-symbol">In</strong>
+<span class="element-name">Indium</span>
+<span class="atomic-mass">114.82</span>
+</summary>
+<div class="element-info">
+<h3>Indium (In)</h3>
+<p class="element-category">Logam pascatransisi</p>
+<dl><div><dt>Nomor atom</dt><dd>49</dd></div><div><dt>Massa atom relatif</dt><dd>114.82</dd></div><div><dt>Periode</dt><dd>5</dd></div><div><dt>Kategori</dt><dd>Logam pascatransisi</dd></div></dl>
+<p>Logam pascatransisi dengan sifat yang bervariasi; digunakan dalam paduan, elektronik, dan berbagai proses industri.</p>
+</div>
+</details><details class="element element-post" style="grid-column:14;grid-row:5">
+<summary aria-label="Timah, nomor atom 50">
+<span class="atomic-number">50</span>
+<strong class="element-symbol">Sn</strong>
+<span class="element-name">Timah</span>
+<span class="atomic-mass">118.71</span>
+</summary>
+<div class="element-info">
+<h3>Timah (Sn)</h3>
+<p class="element-category">Logam pascatransisi</p>
+<dl><div><dt>Nomor atom</dt><dd>50</dd></div><div><dt>Massa atom relatif</dt><dd>118.71</dd></div><div><dt>Periode</dt><dd>5</dd></div><div><dt>Kategori</dt><dd>Logam pascatransisi</dd></div></dl>
+<p>Logam pascatransisi dengan sifat yang bervariasi; digunakan dalam paduan, elektronik, dan berbagai proses industri.</p>
+</div>
+</details><details class="element element-metalloid" style="grid-column:15;grid-row:5">
+<summary aria-label="Antimon, nomor atom 51">
+<span class="atomic-number">51</span>
+<strong class="element-symbol">Sb</strong>
+<span class="element-name">Antimon</span>
+<span class="atomic-mass">121.76</span>
+</summary>
+<div class="element-info">
+<h3>Antimon (Sb)</h3>
+<p class="element-category">Metaloid</p>
+<dl><div><dt>Nomor atom</dt><dd>51</dd></div><div><dt>Massa atom relatif</dt><dd>121.76</dd></div><div><dt>Periode</dt><dd>5</dd></div><div><dt>Kategori</dt><dd>Metaloid</dd></div></dl>
+<p>Metaloid memiliki beberapa sifat di antara logam dan nonlogam; sejumlah di antaranya penting dalam semikonduktor.</p>
+</div>
+</details><details class="element element-metalloid" style="grid-column:16;grid-row:5">
+<summary aria-label="Telurium, nomor atom 52">
+<span class="atomic-number">52</span>
+<strong class="element-symbol">Te</strong>
+<span class="element-name">Telurium</span>
+<span class="atomic-mass">127.60</span>
+</summary>
+<div class="element-info">
+<h3>Telurium (Te)</h3>
+<p class="element-category">Metaloid</p>
+<dl><div><dt>Nomor atom</dt><dd>52</dd></div><div><dt>Massa atom relatif</dt><dd>127.60</dd></div><div><dt>Periode</dt><dd>5</dd></div><div><dt>Kategori</dt><dd>Metaloid</dd></div></dl>
+<p>Metaloid memiliki beberapa sifat di antara logam dan nonlogam; sejumlah di antaranya penting dalam semikonduktor.</p>
+</div>
+</details><details class="element element-halogen" style="grid-column:17;grid-row:5">
+<summary aria-label="Iodin, nomor atom 53">
+<span class="atomic-number">53</span>
+<strong class="element-symbol">I</strong>
+<span class="element-name">Iodin</span>
+<span class="atomic-mass">126.90</span>
+</summary>
+<div class="element-info">
+<h3>Iodin (I)</h3>
+<p class="element-category">Halogen</p>
+<dl><div><dt>Nomor atom</dt><dd>53</dd></div><div><dt>Massa atom relatif</dt><dd>126.90</dd></div><div><dt>Periode</dt><dd>5</dd></div><div><dt>Kategori</dt><dd>Halogen</dd></div></dl>
+<p>Halogen merupakan kelompok nonlogam reaktif yang banyak membentuk garam dan senyawa dengan unsur lain.</p>
+</div>
+</details><details class="element element-noble" style="grid-column:18;grid-row:5">
+<summary aria-label="Xenon, nomor atom 54">
+<span class="atomic-number">54</span>
+<strong class="element-symbol">Xe</strong>
+<span class="element-name">Xenon</span>
+<span class="atomic-mass">131.29</span>
+</summary>
+<div class="element-info">
+<h3>Xenon (Xe)</h3>
+<p class="element-category">Gas mulia</p>
+<dl><div><dt>Nomor atom</dt><dd>54</dd></div><div><dt>Massa atom relatif</dt><dd>131.29</dd></div><div><dt>Periode</dt><dd>5</dd></div><div><dt>Kategori</dt><dd>Gas mulia</dd></div></dl>
+<p>Gas mulia dengan reaktivitas relatif rendah. Banyak digunakan untuk pencahayaan, atmosfer pelindung, atau aplikasi khusus.</p>
+</div>
+</details><details class="element element-alkali" style="grid-column:1;grid-row:6">
+<summary aria-label="Sesium, nomor atom 55">
+<span class="atomic-number">55</span>
+<strong class="element-symbol">Cs</strong>
+<span class="element-name">Sesium</span>
+<span class="atomic-mass">132.91</span>
+</summary>
+<div class="element-info">
+<h3>Sesium (Cs)</h3>
+<p class="element-category">Logam alkali</p>
+<dl><div><dt>Nomor atom</dt><dd>55</dd></div><div><dt>Massa atom relatif</dt><dd>132.91</dd></div><div><dt>Periode</dt><dd>6</dd></div><div><dt>Kategori</dt><dd>Logam alkali</dd></div></dl>
+<p>Logam alkali yang umumnya sangat reaktif, terutama terhadap air. Penanganannya memerlukan kehati-hatian.</p>
+</div>
+</details><details class="element element-alkaline" style="grid-column:2;grid-row:6">
+<summary aria-label="Barium, nomor atom 56">
+<span class="atomic-number">56</span>
+<strong class="element-symbol">Ba</strong>
+<span class="element-name">Barium</span>
+<span class="atomic-mass">137.33</span>
+</summary>
+<div class="element-info">
+<h3>Barium (Ba)</h3>
+<p class="element-category">Logam alkali tanah</p>
+<dl><div><dt>Nomor atom</dt><dd>56</dd></div><div><dt>Massa atom relatif</dt><dd>137.33</dd></div><div><dt>Periode</dt><dd>6</dd></div><div><dt>Kategori</dt><dd>Logam alkali tanah</dd></div></dl>
+<p>Logam alkali tanah yang membentuk banyak mineral dan senyawa penting dalam industri maupun kehidupan.</p>
+</div>
+</details><details class="element element-transition" style="grid-column:4;grid-row:6">
+<summary aria-label="Hafnium, nomor atom 72">
+<span class="atomic-number">72</span>
+<strong class="element-symbol">Hf</strong>
+<span class="element-name">Hafnium</span>
+<span class="atomic-mass">178.49</span>
+</summary>
+<div class="element-info">
+<h3>Hafnium (Hf)</h3>
+<p class="element-category">Logam transisi</p>
+<dl><div><dt>Nomor atom</dt><dd>72</dd></div><div><dt>Massa atom relatif</dt><dd>178.49</dd></div><div><dt>Periode</dt><dd>6</dd></div><div><dt>Kategori</dt><dd>Logam transisi</dd></div></dl>
+<p>Logam transisi umumnya kuat, dapat membentuk beragam senyawa, dan banyak dimanfaatkan dalam paduan serta katalis.</p>
+</div>
+</details><details class="element element-transition" style="grid-column:5;grid-row:6">
+<summary aria-label="Tantalum, nomor atom 73">
+<span class="atomic-number">73</span>
+<strong class="element-symbol">Ta</strong>
+<span class="element-name">Tantalum</span>
+<span class="atomic-mass">180.95</span>
+</summary>
+<div class="element-info">
+<h3>Tantalum (Ta)</h3>
+<p class="element-category">Logam transisi</p>
+<dl><div><dt>Nomor atom</dt><dd>73</dd></div><div><dt>Massa atom relatif</dt><dd>180.95</dd></div><div><dt>Periode</dt><dd>6</dd></div><div><dt>Kategori</dt><dd>Logam transisi</dd></div></dl>
+<p>Logam transisi umumnya kuat, dapat membentuk beragam senyawa, dan banyak dimanfaatkan dalam paduan serta katalis.</p>
+</div>
+</details><details class="element element-transition" style="grid-column:6;grid-row:6">
+<summary aria-label="Wolfram, nomor atom 74">
+<span class="atomic-number">74</span>
+<strong class="element-symbol">W</strong>
+<span class="element-name">Wolfram</span>
+<span class="atomic-mass">183.84</span>
+</summary>
+<div class="element-info">
+<h3>Wolfram (W)</h3>
+<p class="element-category">Logam transisi</p>
+<dl><div><dt>Nomor atom</dt><dd>74</dd></div><div><dt>Massa atom relatif</dt><dd>183.84</dd></div><div><dt>Periode</dt><dd>6</dd></div><div><dt>Kategori</dt><dd>Logam transisi</dd></div></dl>
+<p>Logam transisi umumnya kuat, dapat membentuk beragam senyawa, dan banyak dimanfaatkan dalam paduan serta katalis.</p>
+</div>
+</details><details class="element element-transition" style="grid-column:7;grid-row:6">
+<summary aria-label="Renium, nomor atom 75">
+<span class="atomic-number">75</span>
+<strong class="element-symbol">Re</strong>
+<span class="element-name">Renium</span>
+<span class="atomic-mass">186.21</span>
+</summary>
+<div class="element-info">
+<h3>Renium (Re)</h3>
+<p class="element-category">Logam transisi</p>
+<dl><div><dt>Nomor atom</dt><dd>75</dd></div><div><dt>Massa atom relatif</dt><dd>186.21</dd></div><div><dt>Periode</dt><dd>6</dd></div><div><dt>Kategori</dt><dd>Logam transisi</dd></div></dl>
+<p>Logam transisi umumnya kuat, dapat membentuk beragam senyawa, dan banyak dimanfaatkan dalam paduan serta katalis.</p>
+</div>
+</details><details class="element element-transition" style="grid-column:8;grid-row:6">
+<summary aria-label="Osmium, nomor atom 76">
+<span class="atomic-number">76</span>
+<strong class="element-symbol">Os</strong>
+<span class="element-name">Osmium</span>
+<span class="atomic-mass">190.23</span>
+</summary>
+<div class="element-info">
+<h3>Osmium (Os)</h3>
+<p class="element-category">Logam transisi</p>
+<dl><div><dt>Nomor atom</dt><dd>76</dd></div><div><dt>Massa atom relatif</dt><dd>190.23</dd></div><div><dt>Periode</dt><dd>6</dd></div><div><dt>Kategori</dt><dd>Logam transisi</dd></div></dl>
+<p>Logam transisi umumnya kuat, dapat membentuk beragam senyawa, dan banyak dimanfaatkan dalam paduan serta katalis.</p>
+</div>
+</details><details class="element element-transition" style="grid-column:9;grid-row:6">
+<summary aria-label="Iridium, nomor atom 77">
+<span class="atomic-number">77</span>
+<strong class="element-symbol">Ir</strong>
+<span class="element-name">Iridium</span>
+<span class="atomic-mass">192.22</span>
+</summary>
+<div class="element-info">
+<h3>Iridium (Ir)</h3>
+<p class="element-category">Logam transisi</p>
+<dl><div><dt>Nomor atom</dt><dd>77</dd></div><div><dt>Massa atom relatif</dt><dd>192.22</dd></div><div><dt>Periode</dt><dd>6</dd></div><div><dt>Kategori</dt><dd>Logam transisi</dd></div></dl>
+<p>Logam transisi umumnya kuat, dapat membentuk beragam senyawa, dan banyak dimanfaatkan dalam paduan serta katalis.</p>
+</div>
+</details><details class="element element-transition" style="grid-column:10;grid-row:6">
+<summary aria-label="Platina, nomor atom 78">
+<span class="atomic-number">78</span>
+<strong class="element-symbol">Pt</strong>
+<span class="element-name">Platina</span>
+<span class="atomic-mass">195.08</span>
+</summary>
+<div class="element-info">
+<h3>Platina (Pt)</h3>
+<p class="element-category">Logam transisi</p>
+<dl><div><dt>Nomor atom</dt><dd>78</dd></div><div><dt>Massa atom relatif</dt><dd>195.08</dd></div><div><dt>Periode</dt><dd>6</dd></div><div><dt>Kategori</dt><dd>Logam transisi</dd></div></dl>
+<p>Logam transisi umumnya kuat, dapat membentuk beragam senyawa, dan banyak dimanfaatkan dalam paduan serta katalis.</p>
+</div>
+</details><details class="element element-transition" style="grid-column:11;grid-row:6">
+<summary aria-label="Emas, nomor atom 79">
+<span class="atomic-number">79</span>
+<strong class="element-symbol">Au</strong>
+<span class="element-name">Emas</span>
+<span class="atomic-mass">196.97</span>
+</summary>
+<div class="element-info">
+<h3>Emas (Au)</h3>
+<p class="element-category">Logam transisi</p>
+<dl><div><dt>Nomor atom</dt><dd>79</dd></div><div><dt>Massa atom relatif</dt><dd>196.97</dd></div><div><dt>Periode</dt><dd>6</dd></div><div><dt>Kategori</dt><dd>Logam transisi</dd></div></dl>
+<p>Logam transisi umumnya kuat, dapat membentuk beragam senyawa, dan banyak dimanfaatkan dalam paduan serta katalis.</p>
+</div>
+</details><details class="element element-transition" style="grid-column:12;grid-row:6">
+<summary aria-label="Raksa, nomor atom 80">
+<span class="atomic-number">80</span>
+<strong class="element-symbol">Hg</strong>
+<span class="element-name">Raksa</span>
+<span class="atomic-mass">200.59</span>
+</summary>
+<div class="element-info">
+<h3>Raksa (Hg)</h3>
+<p class="element-category">Logam transisi</p>
+<dl><div><dt>Nomor atom</dt><dd>80</dd></div><div><dt>Massa atom relatif</dt><dd>200.59</dd></div><div><dt>Periode</dt><dd>6</dd></div><div><dt>Kategori</dt><dd>Logam transisi</dd></div></dl>
+<p>Logam transisi umumnya kuat, dapat membentuk beragam senyawa, dan banyak dimanfaatkan dalam paduan serta katalis.</p>
+</div>
+</details><details class="element element-post" style="grid-column:13;grid-row:6">
+<summary aria-label="Talium, nomor atom 81">
+<span class="atomic-number">81</span>
+<strong class="element-symbol">Tl</strong>
+<span class="element-name">Talium</span>
+<span class="atomic-mass">204.38</span>
+</summary>
+<div class="element-info">
+<h3>Talium (Tl)</h3>
+<p class="element-category">Logam pascatransisi</p>
+<dl><div><dt>Nomor atom</dt><dd>81</dd></div><div><dt>Massa atom relatif</dt><dd>204.38</dd></div><div><dt>Periode</dt><dd>6</dd></div><div><dt>Kategori</dt><dd>Logam pascatransisi</dd></div></dl>
+<p>Logam pascatransisi dengan sifat yang bervariasi; digunakan dalam paduan, elektronik, dan berbagai proses industri.</p>
+</div>
+</details><details class="element element-post" style="grid-column:14;grid-row:6">
+<summary aria-label="Timbal, nomor atom 82">
+<span class="atomic-number">82</span>
+<strong class="element-symbol">Pb</strong>
+<span class="element-name">Timbal</span>
+<span class="atomic-mass">207.2</span>
+</summary>
+<div class="element-info">
+<h3>Timbal (Pb)</h3>
+<p class="element-category">Logam pascatransisi</p>
+<dl><div><dt>Nomor atom</dt><dd>82</dd></div><div><dt>Massa atom relatif</dt><dd>207.2</dd></div><div><dt>Periode</dt><dd>6</dd></div><div><dt>Kategori</dt><dd>Logam pascatransisi</dd></div></dl>
+<p>Logam pascatransisi dengan sifat yang bervariasi; digunakan dalam paduan, elektronik, dan berbagai proses industri.</p>
+</div>
+</details><details class="element element-post" style="grid-column:15;grid-row:6">
+<summary aria-label="Bismut, nomor atom 83">
+<span class="atomic-number">83</span>
+<strong class="element-symbol">Bi</strong>
+<span class="element-name">Bismut</span>
+<span class="atomic-mass">208.98</span>
+</summary>
+<div class="element-info">
+<h3>Bismut (Bi)</h3>
+<p class="element-category">Logam pascatransisi</p>
+<dl><div><dt>Nomor atom</dt><dd>83</dd></div><div><dt>Massa atom relatif</dt><dd>208.98</dd></div><div><dt>Periode</dt><dd>6</dd></div><div><dt>Kategori</dt><dd>Logam pascatransisi</dd></div></dl>
+<p>Logam pascatransisi dengan sifat yang bervariasi; digunakan dalam paduan, elektronik, dan berbagai proses industri.</p>
+</div>
+</details><details class="element element-post" style="grid-column:16;grid-row:6">
+<summary aria-label="Polonium, nomor atom 84">
+<span class="atomic-number">84</span>
+<strong class="element-symbol">Po</strong>
+<span class="element-name">Polonium</span>
+<span class="atomic-mass">[209]</span>
+</summary>
+<div class="element-info">
+<h3>Polonium (Po)</h3>
+<p class="element-category">Logam pascatransisi</p>
+<dl><div><dt>Nomor atom</dt><dd>84</dd></div><div><dt>Massa atom relatif</dt><dd>[209]</dd></div><div><dt>Periode</dt><dd>6</dd></div><div><dt>Kategori</dt><dd>Logam pascatransisi</dd></div></dl>
+<p>Logam pascatransisi dengan sifat yang bervariasi; digunakan dalam paduan, elektronik, dan berbagai proses industri.</p>
+</div>
+</details><details class="element element-halogen" style="grid-column:17;grid-row:6">
+<summary aria-label="Astatin, nomor atom 85">
+<span class="atomic-number">85</span>
+<strong class="element-symbol">At</strong>
+<span class="element-name">Astatin</span>
+<span class="atomic-mass">[210]</span>
+</summary>
+<div class="element-info">
+<h3>Astatin (At)</h3>
+<p class="element-category">Halogen</p>
+<dl><div><dt>Nomor atom</dt><dd>85</dd></div><div><dt>Massa atom relatif</dt><dd>[210]</dd></div><div><dt>Periode</dt><dd>6</dd></div><div><dt>Kategori</dt><dd>Halogen</dd></div></dl>
+<p>Halogen merupakan kelompok nonlogam reaktif yang banyak membentuk garam dan senyawa dengan unsur lain.</p>
+</div>
+</details><details class="element element-noble" style="grid-column:18;grid-row:6">
+<summary aria-label="Radon, nomor atom 86">
+<span class="atomic-number">86</span>
+<strong class="element-symbol">Rn</strong>
+<span class="element-name">Radon</span>
+<span class="atomic-mass">[222]</span>
+</summary>
+<div class="element-info">
+<h3>Radon (Rn)</h3>
+<p class="element-category">Gas mulia</p>
+<dl><div><dt>Nomor atom</dt><dd>86</dd></div><div><dt>Massa atom relatif</dt><dd>[222]</dd></div><div><dt>Periode</dt><dd>6</dd></div><div><dt>Kategori</dt><dd>Gas mulia</dd></div></dl>
+<p>Gas mulia dengan reaktivitas relatif rendah. Banyak digunakan untuk pencahayaan, atmosfer pelindung, atau aplikasi khusus.</p>
+</div>
+</details><details class="element element-alkali" style="grid-column:1;grid-row:7">
+<summary aria-label="Fransium, nomor atom 87">
+<span class="atomic-number">87</span>
+<strong class="element-symbol">Fr</strong>
+<span class="element-name">Fransium</span>
+<span class="atomic-mass">[223]</span>
+</summary>
+<div class="element-info">
+<h3>Fransium (Fr)</h3>
+<p class="element-category">Logam alkali</p>
+<dl><div><dt>Nomor atom</dt><dd>87</dd></div><div><dt>Massa atom relatif</dt><dd>[223]</dd></div><div><dt>Periode</dt><dd>7</dd></div><div><dt>Kategori</dt><dd>Logam alkali</dd></div></dl>
+<p>Logam alkali yang umumnya sangat reaktif, terutama terhadap air. Penanganannya memerlukan kehati-hatian.</p>
+</div>
+</details><details class="element element-alkaline" style="grid-column:2;grid-row:7">
+<summary aria-label="Radium, nomor atom 88">
+<span class="atomic-number">88</span>
+<strong class="element-symbol">Ra</strong>
+<span class="element-name">Radium</span>
+<span class="atomic-mass">[226]</span>
+</summary>
+<div class="element-info">
+<h3>Radium (Ra)</h3>
+<p class="element-category">Logam alkali tanah</p>
+<dl><div><dt>Nomor atom</dt><dd>88</dd></div><div><dt>Massa atom relatif</dt><dd>[226]</dd></div><div><dt>Periode</dt><dd>7</dd></div><div><dt>Kategori</dt><dd>Logam alkali tanah</dd></div></dl>
+<p>Logam alkali tanah yang membentuk banyak mineral dan senyawa penting dalam industri maupun kehidupan.</p>
+</div>
+</details><details class="element element-transition" style="grid-column:4;grid-row:7">
+<summary aria-label="Rutherfordium, nomor atom 104">
+<span class="atomic-number">104</span>
+<strong class="element-symbol">Rf</strong>
+<span class="element-name">Rutherfordium</span>
+<span class="atomic-mass">[267]</span>
+</summary>
+<div class="element-info">
+<h3>Rutherfordium (Rf)</h3>
+<p class="element-category">Logam transisi</p>
+<dl><div><dt>Nomor atom</dt><dd>104</dd></div><div><dt>Massa atom relatif</dt><dd>[267]</dd></div><div><dt>Periode</dt><dd>7</dd></div><div><dt>Kategori</dt><dd>Logam transisi</dd></div></dl>
+<p>Logam transisi umumnya kuat, dapat membentuk beragam senyawa, dan banyak dimanfaatkan dalam paduan serta katalis.</p>
+</div>
+</details><details class="element element-transition" style="grid-column:5;grid-row:7">
+<summary aria-label="Dubnium, nomor atom 105">
+<span class="atomic-number">105</span>
+<strong class="element-symbol">Db</strong>
+<span class="element-name">Dubnium</span>
+<span class="atomic-mass">[268]</span>
+</summary>
+<div class="element-info">
+<h3>Dubnium (Db)</h3>
+<p class="element-category">Logam transisi</p>
+<dl><div><dt>Nomor atom</dt><dd>105</dd></div><div><dt>Massa atom relatif</dt><dd>[268]</dd></div><div><dt>Periode</dt><dd>7</dd></div><div><dt>Kategori</dt><dd>Logam transisi</dd></div></dl>
+<p>Logam transisi umumnya kuat, dapat membentuk beragam senyawa, dan banyak dimanfaatkan dalam paduan serta katalis.</p>
+</div>
+</details><details class="element element-transition" style="grid-column:6;grid-row:7">
+<summary aria-label="Seaborgium, nomor atom 106">
+<span class="atomic-number">106</span>
+<strong class="element-symbol">Sg</strong>
+<span class="element-name">Seaborgium</span>
+<span class="atomic-mass">[269]</span>
+</summary>
+<div class="element-info">
+<h3>Seaborgium (Sg)</h3>
+<p class="element-category">Logam transisi</p>
+<dl><div><dt>Nomor atom</dt><dd>106</dd></div><div><dt>Massa atom relatif</dt><dd>[269]</dd></div><div><dt>Periode</dt><dd>7</dd></div><div><dt>Kategori</dt><dd>Logam transisi</dd></div></dl>
+<p>Logam transisi umumnya kuat, dapat membentuk beragam senyawa, dan banyak dimanfaatkan dalam paduan serta katalis.</p>
+</div>
+</details><details class="element element-transition" style="grid-column:7;grid-row:7">
+<summary aria-label="Bohrium, nomor atom 107">
+<span class="atomic-number">107</span>
+<strong class="element-symbol">Bh</strong>
+<span class="element-name">Bohrium</span>
+<span class="atomic-mass">[270]</span>
+</summary>
+<div class="element-info">
+<h3>Bohrium (Bh)</h3>
+<p class="element-category">Logam transisi</p>
+<dl><div><dt>Nomor atom</dt><dd>107</dd></div><div><dt>Massa atom relatif</dt><dd>[270]</dd></div><div><dt>Periode</dt><dd>7</dd></div><div><dt>Kategori</dt><dd>Logam transisi</dd></div></dl>
+<p>Logam transisi umumnya kuat, dapat membentuk beragam senyawa, dan banyak dimanfaatkan dalam paduan serta katalis.</p>
+</div>
+</details><details class="element element-transition" style="grid-column:8;grid-row:7">
+<summary aria-label="Hassium, nomor atom 108">
+<span class="atomic-number">108</span>
+<strong class="element-symbol">Hs</strong>
+<span class="element-name">Hassium</span>
+<span class="atomic-mass">[277]</span>
+</summary>
+<div class="element-info">
+<h3>Hassium (Hs)</h3>
+<p class="element-category">Logam transisi</p>
+<dl><div><dt>Nomor atom</dt><dd>108</dd></div><div><dt>Massa atom relatif</dt><dd>[277]</dd></div><div><dt>Periode</dt><dd>7</dd></div><div><dt>Kategori</dt><dd>Logam transisi</dd></div></dl>
+<p>Logam transisi umumnya kuat, dapat membentuk beragam senyawa, dan banyak dimanfaatkan dalam paduan serta katalis.</p>
+</div>
+</details><details class="element element-unknown" style="grid-column:9;grid-row:7">
+<summary aria-label="Meitnerium, nomor atom 109">
+<span class="atomic-number">109</span>
+<strong class="element-symbol">Mt</strong>
+<span class="element-name">Meitnerium</span>
+<span class="atomic-mass">[278]</span>
+</summary>
+<div class="element-info">
+<h3>Meitnerium (Mt)</h3>
+<p class="element-category">Sifat belum diketahui</p>
+<dl><div><dt>Nomor atom</dt><dd>109</dd></div><div><dt>Massa atom relatif</dt><dd>[278]</dd></div><div><dt>Periode</dt><dd>7</dd></div><div><dt>Kategori</dt><dd>Sifat belum diketahui</dd></div></dl>
+<p>Unsur sintetis sangat berat. Sifatnya belum dipahami sepenuhnya dan sebagian besar hanya dipelajari dalam laboratorium.</p>
+</div>
+</details><details class="element element-unknown" style="grid-column:10;grid-row:7">
+<summary aria-label="Darmstadtium, nomor atom 110">
+<span class="atomic-number">110</span>
+<strong class="element-symbol">Ds</strong>
+<span class="element-name">Darmstadtium</span>
+<span class="atomic-mass">[281]</span>
+</summary>
+<div class="element-info">
+<h3>Darmstadtium (Ds)</h3>
+<p class="element-category">Sifat belum diketahui</p>
+<dl><div><dt>Nomor atom</dt><dd>110</dd></div><div><dt>Massa atom relatif</dt><dd>[281]</dd></div><div><dt>Periode</dt><dd>7</dd></div><div><dt>Kategori</dt><dd>Sifat belum diketahui</dd></div></dl>
+<p>Unsur sintetis sangat berat. Sifatnya belum dipahami sepenuhnya dan sebagian besar hanya dipelajari dalam laboratorium.</p>
+</div>
+</details><details class="element element-unknown" style="grid-column:11;grid-row:7">
+<summary aria-label="Roentgenium, nomor atom 111">
+<span class="atomic-number">111</span>
+<strong class="element-symbol">Rg</strong>
+<span class="element-name">Roentgenium</span>
+<span class="atomic-mass">[282]</span>
+</summary>
+<div class="element-info">
+<h3>Roentgenium (Rg)</h3>
+<p class="element-category">Sifat belum diketahui</p>
+<dl><div><dt>Nomor atom</dt><dd>111</dd></div><div><dt>Massa atom relatif</dt><dd>[282]</dd></div><div><dt>Periode</dt><dd>7</dd></div><div><dt>Kategori</dt><dd>Sifat belum diketahui</dd></div></dl>
+<p>Unsur sintetis sangat berat. Sifatnya belum dipahami sepenuhnya dan sebagian besar hanya dipelajari dalam laboratorium.</p>
+</div>
+</details><details class="element element-unknown" style="grid-column:12;grid-row:7">
+<summary aria-label="Kopernisium, nomor atom 112">
+<span class="atomic-number">112</span>
+<strong class="element-symbol">Cn</strong>
+<span class="element-name">Kopernisium</span>
+<span class="atomic-mass">[285]</span>
+</summary>
+<div class="element-info">
+<h3>Kopernisium (Cn)</h3>
+<p class="element-category">Sifat belum diketahui</p>
+<dl><div><dt>Nomor atom</dt><dd>112</dd></div><div><dt>Massa atom relatif</dt><dd>[285]</dd></div><div><dt>Periode</dt><dd>7</dd></div><div><dt>Kategori</dt><dd>Sifat belum diketahui</dd></div></dl>
+<p>Unsur sintetis sangat berat. Sifatnya belum dipahami sepenuhnya dan sebagian besar hanya dipelajari dalam laboratorium.</p>
+</div>
+</details><details class="element element-unknown" style="grid-column:13;grid-row:7">
+<summary aria-label="Nihonium, nomor atom 113">
+<span class="atomic-number">113</span>
+<strong class="element-symbol">Nh</strong>
+<span class="element-name">Nihonium</span>
+<span class="atomic-mass">[286]</span>
+</summary>
+<div class="element-info">
+<h3>Nihonium (Nh)</h3>
+<p class="element-category">Sifat belum diketahui</p>
+<dl><div><dt>Nomor atom</dt><dd>113</dd></div><div><dt>Massa atom relatif</dt><dd>[286]</dd></div><div><dt>Periode</dt><dd>7</dd></div><div><dt>Kategori</dt><dd>Sifat belum diketahui</dd></div></dl>
+<p>Unsur sintetis sangat berat. Sifatnya belum dipahami sepenuhnya dan sebagian besar hanya dipelajari dalam laboratorium.</p>
+</div>
+</details><details class="element element-unknown" style="grid-column:14;grid-row:7">
+<summary aria-label="Flerovium, nomor atom 114">
+<span class="atomic-number">114</span>
+<strong class="element-symbol">Fl</strong>
+<span class="element-name">Flerovium</span>
+<span class="atomic-mass">[289]</span>
+</summary>
+<div class="element-info">
+<h3>Flerovium (Fl)</h3>
+<p class="element-category">Sifat belum diketahui</p>
+<dl><div><dt>Nomor atom</dt><dd>114</dd></div><div><dt>Massa atom relatif</dt><dd>[289]</dd></div><div><dt>Periode</dt><dd>7</dd></div><div><dt>Kategori</dt><dd>Sifat belum diketahui</dd></div></dl>
+<p>Unsur sintetis sangat berat. Sifatnya belum dipahami sepenuhnya dan sebagian besar hanya dipelajari dalam laboratorium.</p>
+</div>
+</details><details class="element element-unknown" style="grid-column:15;grid-row:7">
+<summary aria-label="Moskovium, nomor atom 115">
+<span class="atomic-number">115</span>
+<strong class="element-symbol">Mc</strong>
+<span class="element-name">Moskovium</span>
+<span class="atomic-mass">[290]</span>
+</summary>
+<div class="element-info">
+<h3>Moskovium (Mc)</h3>
+<p class="element-category">Sifat belum diketahui</p>
+<dl><div><dt>Nomor atom</dt><dd>115</dd></div><div><dt>Massa atom relatif</dt><dd>[290]</dd></div><div><dt>Periode</dt><dd>7</dd></div><div><dt>Kategori</dt><dd>Sifat belum diketahui</dd></div></dl>
+<p>Unsur sintetis sangat berat. Sifatnya belum dipahami sepenuhnya dan sebagian besar hanya dipelajari dalam laboratorium.</p>
+</div>
+</details><details class="element element-unknown" style="grid-column:16;grid-row:7">
+<summary aria-label="Livermorium, nomor atom 116">
+<span class="atomic-number">116</span>
+<strong class="element-symbol">Lv</strong>
+<span class="element-name">Livermorium</span>
+<span class="atomic-mass">[293]</span>
+</summary>
+<div class="element-info">
+<h3>Livermorium (Lv)</h3>
+<p class="element-category">Sifat belum diketahui</p>
+<dl><div><dt>Nomor atom</dt><dd>116</dd></div><div><dt>Massa atom relatif</dt><dd>[293]</dd></div><div><dt>Periode</dt><dd>7</dd></div><div><dt>Kategori</dt><dd>Sifat belum diketahui</dd></div></dl>
+<p>Unsur sintetis sangat berat. Sifatnya belum dipahami sepenuhnya dan sebagian besar hanya dipelajari dalam laboratorium.</p>
+</div>
+</details><details class="element element-halogen" style="grid-column:17;grid-row:7">
+<summary aria-label="Tenesin, nomor atom 117">
+<span class="atomic-number">117</span>
+<strong class="element-symbol">Ts</strong>
+<span class="element-name">Tenesin</span>
+<span class="atomic-mass">[294]</span>
+</summary>
+<div class="element-info">
+<h3>Tenesin (Ts)</h3>
+<p class="element-category">Halogen</p>
+<dl><div><dt>Nomor atom</dt><dd>117</dd></div><div><dt>Massa atom relatif</dt><dd>[294]</dd></div><div><dt>Periode</dt><dd>7</dd></div><div><dt>Kategori</dt><dd>Halogen</dd></div></dl>
+<p>Halogen merupakan kelompok nonlogam reaktif yang banyak membentuk garam dan senyawa dengan unsur lain.</p>
+</div>
+</details><details class="element element-noble" style="grid-column:18;grid-row:7">
+<summary aria-label="Oganeson, nomor atom 118">
+<span class="atomic-number">118</span>
+<strong class="element-symbol">Og</strong>
+<span class="element-name">Oganeson</span>
+<span class="atomic-mass">[294]</span>
+</summary>
+<div class="element-info">
+<h3>Oganeson (Og)</h3>
+<p class="element-category">Gas mulia</p>
+<dl><div><dt>Nomor atom</dt><dd>118</dd></div><div><dt>Massa atom relatif</dt><dd>[294]</dd></div><div><dt>Periode</dt><dd>7</dd></div><div><dt>Kategori</dt><dd>Gas mulia</dd></div></dl>
+<p>Gas mulia dengan reaktivitas relatif rendah. Banyak digunakan untuk pencahayaan, atmosfer pelindung, atau aplikasi khusus.</p>
+</div>
+</details>
+<div class="series-placeholder" style="grid-column:3;grid-row:6">57–71<br/><small>Lantanida</small></div>
+<div class="series-placeholder" style="grid-column:3;grid-row:7">89–103<br/><small>Aktinida</small></div>
+</div></div>
+        <section class="series-section" aria-labelledby="lanth-title">
+          <div class="section-heading"><div><h3 id="lanth-title">Deret Lantanida</h3><p class="subheading">Unsur 57–71</p></div></div>
+          <div class="table-wrap"><div class="series-grid"><details class="series-element element-lanthanoid" style="grid-column:4;grid-row:1">
+<summary aria-label="Lantanum, nomor atom 57">
+<span class="atomic-number">57</span>
+<strong class="element-symbol">La</strong>
+<span class="element-name">Lantanum</span>
+<span class="atomic-mass">138.91</span>
+</summary>
+<div class="element-info">
+<h3>Lantanum (La)</h3>
+<p class="element-category">Lantanida</p>
+<dl><div><dt>Nomor atom</dt><dd>57</dd></div><div><dt>Massa atom relatif</dt><dd>138.91</dd></div><div><dt>Periode</dt><dd>6</dd></div><div><dt>Kategori</dt><dd>Lantanida</dd></div></dl>
+<p>Unsur tanah jarang yang digunakan pada magnet, material optik, fosfor, dan teknologi modern.</p>
+</div>
+</details><details class="series-element element-lanthanoid" style="grid-column:5;grid-row:1">
+<summary aria-label="Serium, nomor atom 58">
+<span class="atomic-number">58</span>
+<strong class="element-symbol">Ce</strong>
+<span class="element-name">Serium</span>
+<span class="atomic-mass">140.12</span>
+</summary>
+<div class="element-info">
+<h3>Serium (Ce)</h3>
+<p class="element-category">Lantanida</p>
+<dl><div><dt>Nomor atom</dt><dd>58</dd></div><div><dt>Massa atom relatif</dt><dd>140.12</dd></div><div><dt>Periode</dt><dd>6</dd></div><div><dt>Kategori</dt><dd>Lantanida</dd></div></dl>
+<p>Unsur tanah jarang yang digunakan pada magnet, material optik, fosfor, dan teknologi modern.</p>
+</div>
+</details><details class="series-element element-lanthanoid" style="grid-column:6;grid-row:1">
+<summary aria-label="Praseodimium, nomor atom 59">
+<span class="atomic-number">59</span>
+<strong class="element-symbol">Pr</strong>
+<span class="element-name">Praseodimium</span>
+<span class="atomic-mass">140.91</span>
+</summary>
+<div class="element-info">
+<h3>Praseodimium (Pr)</h3>
+<p class="element-category">Lantanida</p>
+<dl><div><dt>Nomor atom</dt><dd>59</dd></div><div><dt>Massa atom relatif</dt><dd>140.91</dd></div><div><dt>Periode</dt><dd>6</dd></div><div><dt>Kategori</dt><dd>Lantanida</dd></div></dl>
+<p>Unsur tanah jarang yang digunakan pada magnet, material optik, fosfor, dan teknologi modern.</p>
+</div>
+</details><details class="series-element element-lanthanoid" style="grid-column:7;grid-row:1">
+<summary aria-label="Neodimium, nomor atom 60">
+<span class="atomic-number">60</span>
+<strong class="element-symbol">Nd</strong>
+<span class="element-name">Neodimium</span>
+<span class="atomic-mass">144.24</span>
+</summary>
+<div class="element-info">
+<h3>Neodimium (Nd)</h3>
+<p class="element-category">Lantanida</p>
+<dl><div><dt>Nomor atom</dt><dd>60</dd></div><div><dt>Massa atom relatif</dt><dd>144.24</dd></div><div><dt>Periode</dt><dd>6</dd></div><div><dt>Kategori</dt><dd>Lantanida</dd></div></dl>
+<p>Unsur tanah jarang yang digunakan pada magnet, material optik, fosfor, dan teknologi modern.</p>
+</div>
+</details><details class="series-element element-lanthanoid" style="grid-column:8;grid-row:1">
+<summary aria-label="Prometium, nomor atom 61">
+<span class="atomic-number">61</span>
+<strong class="element-symbol">Pm</strong>
+<span class="element-name">Prometium</span>
+<span class="atomic-mass">[145]</span>
+</summary>
+<div class="element-info">
+<h3>Prometium (Pm)</h3>
+<p class="element-category">Lantanida</p>
+<dl><div><dt>Nomor atom</dt><dd>61</dd></div><div><dt>Massa atom relatif</dt><dd>[145]</dd></div><div><dt>Periode</dt><dd>6</dd></div><div><dt>Kategori</dt><dd>Lantanida</dd></div></dl>
+<p>Unsur tanah jarang yang digunakan pada magnet, material optik, fosfor, dan teknologi modern.</p>
+</div>
+</details><details class="series-element element-lanthanoid" style="grid-column:9;grid-row:1">
+<summary aria-label="Samarium, nomor atom 62">
+<span class="atomic-number">62</span>
+<strong class="element-symbol">Sm</strong>
+<span class="element-name">Samarium</span>
+<span class="atomic-mass">150.36</span>
+</summary>
+<div class="element-info">
+<h3>Samarium (Sm)</h3>
+<p class="element-category">Lantanida</p>
+<dl><div><dt>Nomor atom</dt><dd>62</dd></div><div><dt>Massa atom relatif</dt><dd>150.36</dd></div><div><dt>Periode</dt><dd>6</dd></div><div><dt>Kategori</dt><dd>Lantanida</dd></div></dl>
+<p>Unsur tanah jarang yang digunakan pada magnet, material optik, fosfor, dan teknologi modern.</p>
+</div>
+</details><details class="series-element element-lanthanoid" style="grid-column:10;grid-row:1">
+<summary aria-label="Europium, nomor atom 63">
+<span class="atomic-number">63</span>
+<strong class="element-symbol">Eu</strong>
+<span class="element-name">Europium</span>
+<span class="atomic-mass">151.96</span>
+</summary>
+<div class="element-info">
+<h3>Europium (Eu)</h3>
+<p class="element-category">Lantanida</p>
+<dl><div><dt>Nomor atom</dt><dd>63</dd></div><div><dt>Massa atom relatif</dt><dd>151.96</dd></div><div><dt>Periode</dt><dd>6</dd></div><div><dt>Kategori</dt><dd>Lantanida</dd></div></dl>
+<p>Unsur tanah jarang yang digunakan pada magnet, material optik, fosfor, dan teknologi modern.</p>
+</div>
+</details><details class="series-element element-lanthanoid" style="grid-column:11;grid-row:1">
+<summary aria-label="Gadolinium, nomor atom 64">
+<span class="atomic-number">64</span>
+<strong class="element-symbol">Gd</strong>
+<span class="element-name">Gadolinium</span>
+<span class="atomic-mass">157.25</span>
+</summary>
+<div class="element-info">
+<h3>Gadolinium (Gd)</h3>
+<p class="element-category">Lantanida</p>
+<dl><div><dt>Nomor atom</dt><dd>64</dd></div><div><dt>Massa atom relatif</dt><dd>157.25</dd></div><div><dt>Periode</dt><dd>6</dd></div><div><dt>Kategori</dt><dd>Lantanida</dd></div></dl>
+<p>Unsur tanah jarang yang digunakan pada magnet, material optik, fosfor, dan teknologi modern.</p>
+</div>
+</details><details class="series-element element-lanthanoid" style="grid-column:12;grid-row:1">
+<summary aria-label="Terbium, nomor atom 65">
+<span class="atomic-number">65</span>
+<strong class="element-symbol">Tb</strong>
+<span class="element-name">Terbium</span>
+<span class="atomic-mass">158.93</span>
+</summary>
+<div class="element-info">
+<h3>Terbium (Tb)</h3>
+<p class="element-category">Lantanida</p>
+<dl><div><dt>Nomor atom</dt><dd>65</dd></div><div><dt>Massa atom relatif</dt><dd>158.93</dd></div><div><dt>Periode</dt><dd>6</dd></div><div><dt>Kategori</dt><dd>Lantanida</dd></div></dl>
+<p>Unsur tanah jarang yang digunakan pada magnet, material optik, fosfor, dan teknologi modern.</p>
+</div>
+</details><details class="series-element element-lanthanoid" style="grid-column:13;grid-row:1">
+<summary aria-label="Disprosium, nomor atom 66">
+<span class="atomic-number">66</span>
+<strong class="element-symbol">Dy</strong>
+<span class="element-name">Disprosium</span>
+<span class="atomic-mass">162.50</span>
+</summary>
+<div class="element-info">
+<h3>Disprosium (Dy)</h3>
+<p class="element-category">Lantanida</p>
+<dl><div><dt>Nomor atom</dt><dd>66</dd></div><div><dt>Massa atom relatif</dt><dd>162.50</dd></div><div><dt>Periode</dt><dd>6</dd></div><div><dt>Kategori</dt><dd>Lantanida</dd></div></dl>
+<p>Unsur tanah jarang yang digunakan pada magnet, material optik, fosfor, dan teknologi modern.</p>
+</div>
+</details><details class="series-element element-lanthanoid" style="grid-column:14;grid-row:1">
+<summary aria-label="Holmium, nomor atom 67">
+<span class="atomic-number">67</span>
+<strong class="element-symbol">Ho</strong>
+<span class="element-name">Holmium</span>
+<span class="atomic-mass">164.93</span>
+</summary>
+<div class="element-info">
+<h3>Holmium (Ho)</h3>
+<p class="element-category">Lantanida</p>
+<dl><div><dt>Nomor atom</dt><dd>67</dd></div><div><dt>Massa atom relatif</dt><dd>164.93</dd></div><div><dt>Periode</dt><dd>6</dd></div><div><dt>Kategori</dt><dd>Lantanida</dd></div></dl>
+<p>Unsur tanah jarang yang digunakan pada magnet, material optik, fosfor, dan teknologi modern.</p>
+</div>
+</details><details class="series-element element-lanthanoid" style="grid-column:15;grid-row:1">
+<summary aria-label="Erbium, nomor atom 68">
+<span class="atomic-number">68</span>
+<strong class="element-symbol">Er</strong>
+<span class="element-name">Erbium</span>
+<span class="atomic-mass">167.26</span>
+</summary>
+<div class="element-info">
+<h3>Erbium (Er)</h3>
+<p class="element-category">Lantanida</p>
+<dl><div><dt>Nomor atom</dt><dd>68</dd></div><div><dt>Massa atom relatif</dt><dd>167.26</dd></div><div><dt>Periode</dt><dd>6</dd></div><div><dt>Kategori</dt><dd>Lantanida</dd></div></dl>
+<p>Unsur tanah jarang yang digunakan pada magnet, material optik, fosfor, dan teknologi modern.</p>
+</div>
+</details><details class="series-element element-lanthanoid" style="grid-column:16;grid-row:1">
+<summary aria-label="Tulium, nomor atom 69">
+<span class="atomic-number">69</span>
+<strong class="element-symbol">Tm</strong>
+<span class="element-name">Tulium</span>
+<span class="atomic-mass">168.93</span>
+</summary>
+<div class="element-info">
+<h3>Tulium (Tm)</h3>
+<p class="element-category">Lantanida</p>
+<dl><div><dt>Nomor atom</dt><dd>69</dd></div><div><dt>Massa atom relatif</dt><dd>168.93</dd></div><div><dt>Periode</dt><dd>6</dd></div><div><dt>Kategori</dt><dd>Lantanida</dd></div></dl>
+<p>Unsur tanah jarang yang digunakan pada magnet, material optik, fosfor, dan teknologi modern.</p>
+</div>
+</details><details class="series-element element-lanthanoid" style="grid-column:17;grid-row:1">
+<summary aria-label="Iterbium, nomor atom 70">
+<span class="atomic-number">70</span>
+<strong class="element-symbol">Yb</strong>
+<span class="element-name">Iterbium</span>
+<span class="atomic-mass">173.05</span>
+</summary>
+<div class="element-info">
+<h3>Iterbium (Yb)</h3>
+<p class="element-category">Lantanida</p>
+<dl><div><dt>Nomor atom</dt><dd>70</dd></div><div><dt>Massa atom relatif</dt><dd>173.05</dd></div><div><dt>Periode</dt><dd>6</dd></div><div><dt>Kategori</dt><dd>Lantanida</dd></div></dl>
+<p>Unsur tanah jarang yang digunakan pada magnet, material optik, fosfor, dan teknologi modern.</p>
+</div>
+</details><details class="series-element element-lanthanoid" style="grid-column:18;grid-row:1">
+<summary aria-label="Lutetium, nomor atom 71">
+<span class="atomic-number">71</span>
+<strong class="element-symbol">Lu</strong>
+<span class="element-name">Lutetium</span>
+<span class="atomic-mass">174.97</span>
+</summary>
+<div class="element-info">
+<h3>Lutetium (Lu)</h3>
+<p class="element-category">Lantanida</p>
+<dl><div><dt>Nomor atom</dt><dd>71</dd></div><div><dt>Massa atom relatif</dt><dd>174.97</dd></div><div><dt>Periode</dt><dd>6</dd></div><div><dt>Kategori</dt><dd>Lantanida</dd></div></dl>
+<p>Unsur tanah jarang yang digunakan pada magnet, material optik, fosfor, dan teknologi modern.</p>
+</div>
+</details></div></div>
+        </section>
+        <section class="series-section" aria-labelledby="act-title">
+          <div class="section-heading"><div><h3 id="act-title">Deret Aktinida</h3><p class="subheading">Unsur 89–103</p></div></div>
+          <div class="table-wrap"><div class="series-grid"><details class="series-element element-actinoid" style="grid-column:4;grid-row:1">
+<summary aria-label="Aktinium, nomor atom 89">
+<span class="atomic-number">89</span>
+<strong class="element-symbol">Ac</strong>
+<span class="element-name">Aktinium</span>
+<span class="atomic-mass">[227]</span>
+</summary>
+<div class="element-info">
+<h3>Aktinium (Ac)</h3>
+<p class="element-category">Aktinida</p>
+<dl><div><dt>Nomor atom</dt><dd>89</dd></div><div><dt>Massa atom relatif</dt><dd>[227]</dd></div><div><dt>Periode</dt><dd>7</dd></div><div><dt>Kategori</dt><dd>Aktinida</dd></div></dl>
+<p>Kelompok unsur radioaktif; sebagian dipakai atau diteliti dalam bidang energi nuklir dan riset.</p>
+</div>
+</details><details class="series-element element-actinoid" style="grid-column:5;grid-row:1">
+<summary aria-label="Torium, nomor atom 90">
+<span class="atomic-number">90</span>
+<strong class="element-symbol">Th</strong>
+<span class="element-name">Torium</span>
+<span class="atomic-mass">232.04</span>
+</summary>
+<div class="element-info">
+<h3>Torium (Th)</h3>
+<p class="element-category">Aktinida</p>
+<dl><div><dt>Nomor atom</dt><dd>90</dd></div><div><dt>Massa atom relatif</dt><dd>232.04</dd></div><div><dt>Periode</dt><dd>7</dd></div><div><dt>Kategori</dt><dd>Aktinida</dd></div></dl>
+<p>Kelompok unsur radioaktif; sebagian dipakai atau diteliti dalam bidang energi nuklir dan riset.</p>
+</div>
+</details><details class="series-element element-actinoid" style="grid-column:6;grid-row:1">
+<summary aria-label="Protaktinium, nomor atom 91">
+<span class="atomic-number">91</span>
+<strong class="element-symbol">Pa</strong>
+<span class="element-name">Protaktinium</span>
+<span class="atomic-mass">231.04</span>
+</summary>
+<div class="element-info">
+<h3>Protaktinium (Pa)</h3>
+<p class="element-category">Aktinida</p>
+<dl><div><dt>Nomor atom</dt><dd>91</dd></div><div><dt>Massa atom relatif</dt><dd>231.04</dd></div><div><dt>Periode</dt><dd>7</dd></div><div><dt>Kategori</dt><dd>Aktinida</dd></div></dl>
+<p>Kelompok unsur radioaktif; sebagian dipakai atau diteliti dalam bidang energi nuklir dan riset.</p>
+</div>
+</details><details class="series-element element-actinoid" style="grid-column:7;grid-row:1">
+<summary aria-label="Uranium, nomor atom 92">
+<span class="atomic-number">92</span>
+<strong class="element-symbol">U</strong>
+<span class="element-name">Uranium</span>
+<span class="atomic-mass">238.03</span>
+</summary>
+<div class="element-info">
+<h3>Uranium (U)</h3>
+<p class="element-category">Aktinida</p>
+<dl><div><dt>Nomor atom</dt><dd>92</dd></div><div><dt>Massa atom relatif</dt><dd>238.03</dd></div><div><dt>Periode</dt><dd>7</dd></div><div><dt>Kategori</dt><dd>Aktinida</dd></div></dl>
+<p>Kelompok unsur radioaktif; sebagian dipakai atau diteliti dalam bidang energi nuklir dan riset.</p>
+</div>
+</details><details class="series-element element-actinoid" style="grid-column:8;grid-row:1">
+<summary aria-label="Neptunium, nomor atom 93">
+<span class="atomic-number">93</span>
+<strong class="element-symbol">Np</strong>
+<span class="element-name">Neptunium</span>
+<span class="atomic-mass">[237]</span>
+</summary>
+<div class="element-info">
+<h3>Neptunium (Np)</h3>
+<p class="element-category">Aktinida</p>
+<dl><div><dt>Nomor atom</dt><dd>93</dd></div><div><dt>Massa atom relatif</dt><dd>[237]</dd></div><div><dt>Periode</dt><dd>7</dd></div><div><dt>Kategori</dt><dd>Aktinida</dd></div></dl>
+<p>Kelompok unsur radioaktif; sebagian dipakai atau diteliti dalam bidang energi nuklir dan riset.</p>
+</div>
+</details><details class="series-element element-actinoid" style="grid-column:9;grid-row:1">
+<summary aria-label="Plutonium, nomor atom 94">
+<span class="atomic-number">94</span>
+<strong class="element-symbol">Pu</strong>
+<span class="element-name">Plutonium</span>
+<span class="atomic-mass">[244]</span>
+</summary>
+<div class="element-info">
+<h3>Plutonium (Pu)</h3>
+<p class="element-category">Aktinida</p>
+<dl><div><dt>Nomor atom</dt><dd>94</dd></div><div><dt>Massa atom relatif</dt><dd>[244]</dd></div><div><dt>Periode</dt><dd>7</dd></div><div><dt>Kategori</dt><dd>Aktinida</dd></div></dl>
+<p>Kelompok unsur radioaktif; sebagian dipakai atau diteliti dalam bidang energi nuklir dan riset.</p>
+</div>
+</details><details class="series-element element-actinoid" style="grid-column:10;grid-row:1">
+<summary aria-label="Amerisium, nomor atom 95">
+<span class="atomic-number">95</span>
+<strong class="element-symbol">Am</strong>
+<span class="element-name">Amerisium</span>
+<span class="atomic-mass">[243]</span>
+</summary>
+<div class="element-info">
+<h3>Amerisium (Am)</h3>
+<p class="element-category">Aktinida</p>
+<dl><div><dt>Nomor atom</dt><dd>95</dd></div><div><dt>Massa atom relatif</dt><dd>[243]</dd></div><div><dt>Periode</dt><dd>7</dd></div><div><dt>Kategori</dt><dd>Aktinida</dd></div></dl>
+<p>Kelompok unsur radioaktif; sebagian dipakai atau diteliti dalam bidang energi nuklir dan riset.</p>
+</div>
+</details><details class="series-element element-actinoid" style="grid-column:11;grid-row:1">
+<summary aria-label="Kurium, nomor atom 96">
+<span class="atomic-number">96</span>
+<strong class="element-symbol">Cm</strong>
+<span class="element-name">Kurium</span>
+<span class="atomic-mass">[247]</span>
+</summary>
+<div class="element-info">
+<h3>Kurium (Cm)</h3>
+<p class="element-category">Aktinida</p>
+<dl><div><dt>Nomor atom</dt><dd>96</dd></div><div><dt>Massa atom relatif</dt><dd>[247]</dd></div><div><dt>Periode</dt><dd>7</dd></div><div><dt>Kategori</dt><dd>Aktinida</dd></div></dl>
+<p>Kelompok unsur radioaktif; sebagian dipakai atau diteliti dalam bidang energi nuklir dan riset.</p>
+</div>
+</details><details class="series-element element-actinoid" style="grid-column:12;grid-row:1">
+<summary aria-label="Berkelium, nomor atom 97">
+<span class="atomic-number">97</span>
+<strong class="element-symbol">Bk</strong>
+<span class="element-name">Berkelium</span>
+<span class="atomic-mass">[247]</span>
+</summary>
+<div class="element-info">
+<h3>Berkelium (Bk)</h3>
+<p class="element-category">Aktinida</p>
+<dl><div><dt>Nomor atom</dt><dd>97</dd></div><div><dt>Massa atom relatif</dt><dd>[247]</dd></div><div><dt>Periode</dt><dd>7</dd></div><div><dt>Kategori</dt><dd>Aktinida</dd></div></dl>
+<p>Kelompok unsur radioaktif; sebagian dipakai atau diteliti dalam bidang energi nuklir dan riset.</p>
+</div>
+</details><details class="series-element element-actinoid" style="grid-column:13;grid-row:1">
+<summary aria-label="Kalifornium, nomor atom 98">
+<span class="atomic-number">98</span>
+<strong class="element-symbol">Cf</strong>
+<span class="element-name">Kalifornium</span>
+<span class="atomic-mass">[251]</span>
+</summary>
+<div class="element-info">
+<h3>Kalifornium (Cf)</h3>
+<p class="element-category">Aktinida</p>
+<dl><div><dt>Nomor atom</dt><dd>98</dd></div><div><dt>Massa atom relatif</dt><dd>[251]</dd></div><div><dt>Periode</dt><dd>7</dd></div><div><dt>Kategori</dt><dd>Aktinida</dd></div></dl>
+<p>Kelompok unsur radioaktif; sebagian dipakai atau diteliti dalam bidang energi nuklir dan riset.</p>
+</div>
+</details><details class="series-element element-actinoid" style="grid-column:14;grid-row:1">
+<summary aria-label="Einsteinium, nomor atom 99">
+<span class="atomic-number">99</span>
+<strong class="element-symbol">Es</strong>
+<span class="element-name">Einsteinium</span>
+<span class="atomic-mass">[252]</span>
+</summary>
+<div class="element-info">
+<h3>Einsteinium (Es)</h3>
+<p class="element-category">Aktinida</p>
+<dl><div><dt>Nomor atom</dt><dd>99</dd></div><div><dt>Massa atom relatif</dt><dd>[252]</dd></div><div><dt>Periode</dt><dd>7</dd></div><div><dt>Kategori</dt><dd>Aktinida</dd></div></dl>
+<p>Kelompok unsur radioaktif; sebagian dipakai atau diteliti dalam bidang energi nuklir dan riset.</p>
+</div>
+</details><details class="series-element element-actinoid" style="grid-column:15;grid-row:1">
+<summary aria-label="Fermium, nomor atom 100">
+<span class="atomic-number">100</span>
+<strong class="element-symbol">Fm</strong>
+<span class="element-name">Fermium</span>
+<span class="atomic-mass">[257]</span>
+</summary>
+<div class="element-info">
+<h3>Fermium (Fm)</h3>
+<p class="element-category">Aktinida</p>
+<dl><div><dt>Nomor atom</dt><dd>100</dd></div><div><dt>Massa atom relatif</dt><dd>[257]</dd></div><div><dt>Periode</dt><dd>7</dd></div><div><dt>Kategori</dt><dd>Aktinida</dd></div></dl>
+<p>Kelompok unsur radioaktif; sebagian dipakai atau diteliti dalam bidang energi nuklir dan riset.</p>
+</div>
+</details><details class="series-element element-actinoid" style="grid-column:16;grid-row:1">
+<summary aria-label="Mendelevium, nomor atom 101">
+<span class="atomic-number">101</span>
+<strong class="element-symbol">Md</strong>
+<span class="element-name">Mendelevium</span>
+<span class="atomic-mass">[258]</span>
+</summary>
+<div class="element-info">
+<h3>Mendelevium (Md)</h3>
+<p class="element-category">Aktinida</p>
+<dl><div><dt>Nomor atom</dt><dd>101</dd></div><div><dt>Massa atom relatif</dt><dd>[258]</dd></div><div><dt>Periode</dt><dd>7</dd></div><div><dt>Kategori</dt><dd>Aktinida</dd></div></dl>
+<p>Kelompok unsur radioaktif; sebagian dipakai atau diteliti dalam bidang energi nuklir dan riset.</p>
+</div>
+</details><details class="series-element element-actinoid" style="grid-column:17;grid-row:1">
+<summary aria-label="Nobelium, nomor atom 102">
+<span class="atomic-number">102</span>
+<strong class="element-symbol">No</strong>
+<span class="element-name">Nobelium</span>
+<span class="atomic-mass">[259]</span>
+</summary>
+<div class="element-info">
+<h3>Nobelium (No)</h3>
+<p class="element-category">Aktinida</p>
+<dl><div><dt>Nomor atom</dt><dd>102</dd></div><div><dt>Massa atom relatif</dt><dd>[259]</dd></div><div><dt>Periode</dt><dd>7</dd></div><div><dt>Kategori</dt><dd>Aktinida</dd></div></dl>
+<p>Kelompok unsur radioaktif; sebagian dipakai atau diteliti dalam bidang energi nuklir dan riset.</p>
+</div>
+</details><details class="series-element element-actinoid" style="grid-column:18;grid-row:1">
+<summary aria-label="Lawrensium, nomor atom 103">
+<span class="atomic-number">103</span>
+<strong class="element-symbol">Lr</strong>
+<span class="element-name">Lawrensium</span>
+<span class="atomic-mass">[266]</span>
+</summary>
+<div class="element-info">
+<h3>Lawrensium (Lr)</h3>
+<p class="element-category">Aktinida</p>
+<dl><div><dt>Nomor atom</dt><dd>103</dd></div><div><dt>Massa atom relatif</dt><dd>[266]</dd></div><div><dt>Periode</dt><dd>7</dd></div><div><dt>Kategori</dt><dd>Aktinida</dd></div></dl>
+<p>Kelompok unsur radioaktif; sebagian dipakai atau diteliti dalam bidang energi nuklir dan riset.</p>
+</div>
+</details></div></div>
+        </section>
+        <p class="periodic-note">Catatan: massa dalam tanda kurung siku menunjukkan nomor massa isotop yang dicantumkan untuk unsur radioaktif tanpa isotop stabil.</p>
       </div>
     </section>
 
-    <!-- Materi Mandiri 1: Pengantar Ilmu Kimia -->
-    <section class="section format-section" id="pengantar-kimia">
+    <section class="section format-section" id="format-kimia">
+
       <div class="container format-grid">
 
         <div class="format-content">
-          <span class="section-label">MATERI 01</span>
 
-          <h2>Pengantar <span>Ilmu Kimia.</span></h2>
+          <span class="section-label">BELAJAR SAMBIL MEMAHAMI</span>
 
-          <p>
-            Ilmu kimia adalah ilmu yang mempelajari materi,
-            termasuk komposisi, struktur, sifat, serta perubahan
-            materi dan energi yang menyertainya.
-          </p>
+          <h2>Bahasa kimia dalam <span>contoh sederhana.</span></h2>
 
           <p>
-            Materi adalah segala sesuatu yang memiliki massa
-            dan menempati ruang. Materi dapat berupa unsur,
-            senyawa, atau campuran.
+
+            Rumus kimia membantu kita menuliskan susunan atom
+
+            dalam suatu zat. Perhatikan contoh berikut.
+
           </p>
 
           <div class="formula-card">
-            <span class="formula-label">CONTOH MATERI</span>
-            <div class="formula">H₂O</div>
-            <p>
-              Air merupakan senyawa yang tersusun atas hidrogen
-              dan oksigen dengan perbandingan atom 2 : 1.
-            </p>
+
+            <span class="formula-label">CONTOH RUMUS KIMIA</span>
+
+            <div class="formula">H<sub>2</sub>O</div>
+
+            <p>Dua atom hidrogen dan satu atom oksigen.</p>
+
           </div>
 
-          <h3>Perubahan Fisika dan Kimia</h3>
+          <p class="format-example">
 
-          <p>
-            <strong>Perubahan fisika</strong> adalah perubahan yang
-            tidak menghasilkan zat baru, misalnya es yang mencair
-            menjadi air.
+            Contoh lain: karbon dioksida ditulis sebagai
+
+            CO<sub>2</sub>, sedangkan oksigen molekuler ditulis
+
+            sebagai O<sub>2</sub>.
+
           </p>
 
-          <p>
-            <strong>Perubahan kimia</strong> adalah perubahan yang
-            menghasilkan zat baru, misalnya besi yang berkarat
-            atau kayu yang terbakar.
+          <p class="format-example">
+
+            Energi juga sering dibahas dalam reaksi kimia.
+
+            Besaran seperti suhu dapat dinyatakan dalam
+
+            <abbr title="derajat Celsius">°C</abbr>.
+
           </p>
+
         </div>
 
         <div class="concept-panel">
-          <h3>Konsep Dasar Kimia</h3>
+
+          <h3>Istilah penting</h3>
 
           <div class="concept-row">
+
             <span class="concept-bullet">01</span>
-            <p>
-              <strong>Materi</strong> — segala sesuatu yang memiliki
-              massa dan menempati ruang.
-            </p>
+
+            <p><strong>Atom</strong> — unit dasar suatu unsur kimia.</p>
+
           </div>
 
           <div class="concept-row">
+
             <span class="concept-bullet">02</span>
-            <p>
-              <strong>Unsur</strong> — zat murni yang tidak dapat
-              diuraikan menjadi zat lebih sederhana melalui reaksi kimia biasa.
-            </p>
+
+            <p><em>Molekul</em> — kumpulan atom yang terikat secara kimia.</p>
+
           </div>
 
           <div class="concept-row">
+
             <span class="concept-bullet">03</span>
-            <p>
-              <strong>Senyawa</strong> — zat yang terbentuk dari dua
-              atau lebih unsur yang berikatan secara kimia.
-            </p>
+
+            <p><mark>Reaksi kimia</mark> — proses perubahan zat menjadi zat lain.</p>
+
           </div>
 
           <div class="concept-row">
+
             <span class="concept-bullet">04</span>
-            <p>
-              <strong>Campuran</strong> — gabungan beberapa zat yang
-              tidak membentuk zat baru melalui ikatan kimia.
-            </p>
+
+            <p><small>Catatan: sifat suatu zat dipengaruhi oleh susunan dan ikatan atomnya.</small></p>
+
           </div>
-
-          <h3>Metode Ilmiah</h3>
-
-          <ol>
-            <li>Melakukan pengamatan.</li>
-            <li>Merumuskan masalah.</li>
-            <li>Menyusun hipotesis.</li>
-            <li>Melakukan percobaan.</li>
-            <li>Menganalisis hasil dan menarik kesimpulan.</li>
-          </ol>
 
           <p class="format-example">
-            Dalam praktikum, gunakan alat pelindung diri,
-            ikuti petunjuk kerja, dan jangan mencicipi bahan kimia.
+
+            Contoh perubahan energi:
+
+            <del>energi tidak pernah berubah bentuk</del>
+
+            <ins>energi dapat berubah bentuk sesuai hukum kekekalan energi</ins>.
+
           </p>
+
+          <p class="format-example">
+
+            Persamaan sederhana:
+
+            2H<sub>2</sub> + O<sub>2</sub> → 2H<sub>2</sub>O
+
+          </p>
+
         </div>
 
       </div>
+
     </section>
 
-    <!-- Materi Mandiri 2: Sistem Periodik Unsur -->
-    <section class="section learning-section" id="sistem-periodik">
+    <!-- Daftar bertingkat -->
+
+    <section class="section learning-section">
+
       <div class="container learning-grid">
 
         <div>
-          <span class="section-label">MATERI 02</span>
 
-          <h2>Sistem <span>Periodik Unsur.</span></h2>
+          <span class="section-label">JALUR BELAJAR</span>
+
+          <h2>Susun pemahaman <span>secara bertahap.</span></h2>
 
           <p class="learning-intro">
-            Sistem periodik unsur menyusun unsur-unsur kimia
-            berdasarkan kenaikan nomor atom dan kemiripan sifatnya.
-            Tabel ini membantu kita memahami hubungan antara
-            struktur atom dan karakteristik setiap unsur.
+
+            Materi kimia saling berhubungan. Mulailah dari
+
+            konsep dasar sebelum mempelajari topik yang lebih kompleks.
+
           </p>
 
-          <p>
-            Setiap unsur memiliki nomor atom yang menunjukkan
-            jumlah proton di dalam inti atom. Pada atom netral,
-            jumlah proton sama dengan jumlah elektronnya.
-          </p>
-
-          <div class="formula-card">
-            <span class="formula-label">CONTOH IDENTITAS UNSUR</span>
-            <div class="formula">₁₁Na</div>
-            <p>
-              Natrium memiliki nomor atom 11, yang berarti
-              atom netral natrium memiliki 11 proton dan 11 elektron.
-            </p>
-          </div>
         </div>
 
         <div class="learning-list-card">
-          <h3>Bagian Sistem Periodik</h3>
+
+          <h3>Peta materi kimia</h3>
 
           <ol>
-            <li>
-              <strong>Golongan</strong>
+
+            <li>Dasar ilmu kimia
+
               <ul>
-                <li>Kolom vertikal dalam tabel periodik.</li>
-                <li>Unsur dalam golongan tertentu memiliki kemiripan sifat kimia.</li>
+
+                <li>Materi dan klasifikasinya</li>
+
+                <li>Perubahan fisika dan kimia</li>
+
               </ul>
+
             </li>
 
-            <li>
-              <strong>Periode</strong>
+            <li>Struktur atom
+
               <ul>
-                <li>Baris horizontal dalam tabel periodik.</li>
-                <li>Menunjukkan tingkat kulit elektron utama yang terisi pada atom dasar.</li>
+
+                <li>Proton, neutron, dan elektron</li>
+
+                <li>Nomor atom dan nomor massa</li>
+
               </ul>
+
             </li>
 
-            <li>
-              <strong>Klasifikasi unsur</strong>
+            <li>Sistem periodik
+
               <ul>
-                <li>Logam, nonlogam, dan metaloid.</li>
-                <li>Golongan utama, logam transisi, serta unsur blok lainnya.</li>
+
+                <li>Golongan dan periode</li>
+
+                <li>Sifat periodik unsur</li>
+
               </ul>
+
             </li>
 
-            <li>
-              <strong>Sifat periodik</strong>
-              <ul>
-                <li>Jari-jari atom.</li>
-                <li>Energi ionisasi.</li>
-                <li>Elektronegativitas.</li>
-                <li>Afinitas elektron.</li>
-              </ul>
-            </li>
+            <li>Ikatan dan reaksi kimia</li>
+
           </ol>
 
-          <a href="#tabel-periodik" class="text-link">
-            Buka tabel periodik <span>→</span>
-          </a>
         </div>
 
       </div>
+
     </section>
 
-    <!-- Tabel periodik interaktif -->
-    <section class="periodic-section" id="tabel-periodik">
-      <div class="container">
+    <!-- Galeri -->
 
-        <div class="section-heading periodic-heading">
-          <div>
-            <span class="section-label">KENALI UNSURNYA</span>
-            <h2>Tabel Periodik <span>Interaktif.</span></h2>
-          </div>
+    <section class="section gallery-section" id="galeri">
 
-          <p>
-            Klik salah satu unsur untuk melihat nomor atom,
-            massa atom, golongan, dan kegunaannya.
-          </p>
-        </div>
-
-        <div class="periodic-legend">
-          <span><i class="legend-pink"></i> Nonlogam</span>
-          <span><i class="legend-purple"></i> Gas mulia</span>
-          <span><i class="legend-coral"></i> Logam alkali</span>
-          <span><i class="legend-yellow"></i> Alkali tanah</span>
-          <span><i class="legend-green"></i> Metaloid</span>
-          <span><i class="legend-blue"></i> Halogen</span>
-        </div>
-
-        <div class="periodic-grid">
-
-          <details class="element element-nonmetal">
-            <summary>
-              <span class="atomic-number">1</span>
-              <span class="element-symbol">H</span>
-              <span class="element-name">Hidrogen</span>
-            </summary>
-            <div class="element-info">
-              <h3>H — Hidrogen</h3>
-              <p><b>Nomor atom:</b> 1</p>
-              <p><b>Massa atom:</b> 1,008 u</p>
-              <p><b>Golongan:</b> 1</p>
-              <p>
-                Unsur paling ringan. Hidrogen merupakan bagian
-                penyusun air dan digunakan dalam produksi amonia
-                serta pengembangan bahan bakar hidrogen.
-              </p>
-            </div>
-          </details>
-
-          <details class="element element-noble">
-            <summary>
-              <span class="atomic-number">2</span>
-              <span class="element-symbol">He</span>
-              <span class="element-name">Helium</span>
-            </summary>
-            <div class="element-info">
-              <h3>He — Helium</h3>
-              <p><b>Nomor atom:</b> 2</p>
-              <p><b>Massa atom:</b> 4,003 u</p>
-              <p><b>Golongan:</b> 18</p>
-              <p>
-                Gas mulia yang sukar bereaksi. Helium digunakan
-                untuk mengisi balon dan sebagai pendingin
-                peralatan ilmiah tertentu.
-              </p>
-            </div>
-          </details>
-
-          <details class="element element-alkali">
-            <summary>
-              <span class="atomic-number">3</span>
-              <span class="element-symbol">Li</span>
-              <span class="element-name">Litium</span>
-            </summary>
-            <div class="element-info">
-              <h3>Li — Litium</h3>
-              <p><b>Nomor atom:</b> 3</p>
-              <p><b>Massa atom:</b> 6,94 u</p>
-              <p><b>Golongan:</b> 1</p>
-              <p>
-                Logam alkali ringan yang banyak digunakan dalam
-                baterai isi ulang ponsel, laptop, dan kendaraan listrik.
-              </p>
-            </div>
-          </details>
-
-          <details class="element element-alkaline">
-            <summary>
-              <span class="atomic-number">4</span>
-              <span class="element-symbol">Be</span>
-              <span class="element-name">Berilium</span>
-            </summary>
-            <div class="element-info">
-              <h3>Be — Berilium</h3>
-              <p><b>Nomor atom:</b> 4</p>
-              <p><b>Massa atom:</b> 9,012 u</p>
-              <p><b>Golongan:</b> 2</p>
-              <p>
-                Logam ringan dan kaku yang digunakan pada komponen
-                industri khusus. Debu berilium berbahaya jika terhirup.
-              </p>
-            </div>
-          </details>
-
-          <details class="element element-metalloid">
-            <summary>
-              <span class="atomic-number">5</span>
-              <span class="element-symbol">B</span>
-              <span class="element-name">Boron</span>
-            </summary>
-            <div class="element-info">
-              <h3>B — Boron</h3>
-              <p><b>Nomor atom:</b> 5</p>
-              <p><b>Massa atom:</b> 10,81 u</p>
-              <p><b>Golongan:</b> 13</p>
-              <p>
-                Unsur metaloid yang senyawanya digunakan dalam
-                kaca borosilikat, deterjen tertentu, dan produk pertanian.
-              </p>
-            </div>
-          </details>
-
-          <details class="element element-nonmetal">
-            <summary>
-              <span class="atomic-number">6</span>
-              <span class="element-symbol">C</span>
-              <span class="element-name">Karbon</span>
-            </summary>
-            <div class="element-info">
-              <h3>C — Karbon</h3>
-              <p><b>Nomor atom:</b> 6</p>
-              <p><b>Massa atom:</b> 12,011 u</p>
-              <p><b>Golongan:</b> 14</p>
-              <p>
-                Unsur penting penyusun senyawa organik dan makhluk hidup.
-                Karbon dapat ditemukan dalam bentuk grafit dan intan.
-              </p>
-            </div>
-          </details>
-
-          <details class="element element-nonmetal">
-            <summary>
-              <span class="atomic-number">7</span>
-              <span class="element-symbol">N</span>
-              <span class="element-name">Nitrogen</span>
-            </summary>
-            <div class="element-info">
-              <h3>N — Nitrogen</h3>
-              <p><b>Nomor atom:</b> 7</p>
-              <p><b>Massa atom:</b> 14,007 u</p>
-              <p><b>Golongan:</b> 15</p>
-              <p>
-                Gas yang menyusun sekitar 78% atmosfer Bumi.
-                Senyawa nitrogen penting dalam produksi pupuk.
-              </p>
-            </div>
-          </details>
-
-          <details class="element element-nonmetal">
-            <summary>
-              <span class="atomic-number">8</span>
-              <span class="element-symbol">O</span>
-              <span class="element-name">Oksigen</span>
-            </summary>
-            <div class="element-info">
-              <h3>O — Oksigen</h3>
-              <p><b>Nomor atom:</b> 8</p>
-              <p><b>Massa atom:</b> 15,999 u</p>
-              <p><b>Golongan:</b> 16</p>
-              <p>
-                Gas yang dibutuhkan dalam respirasi banyak organisme
-                dan berperan dalam proses pembakaran.
-              </p>
-            </div>
-          </details>
-
-          <details class="element element-halogen">
-            <summary>
-              <span class="atomic-number">9</span>
-              <span class="element-symbol">F</span>
-              <span class="element-name">Fluorin</span>
-            </summary>
-            <div class="element-info">
-              <h3>F — Fluorin</h3>
-              <p><b>Nomor atom:</b> 9</p>
-              <p><b>Massa atom:</b> 18,998 u</p>
-              <p><b>Golongan:</b> 17</p>
-              <p>
-                Unsur halogen yang sangat reaktif. Senyawa fluorida
-                digunakan dalam perawatan gigi untuk membantu
-                mencegah gigi berlubang.
-              </p>
-            </div>
-          </details>
-
-          <details class="element element-noble">
-            <summary>
-              <span class="atomic-number">10</span>
-              <span class="element-symbol">Ne</span>
-              <span class="element-name">Neon</span>
-            </summary>
-            <div class="element-info">
-              <h3>Ne — Neon</h3>
-              <p><b>Nomor atom:</b> 10</p>
-              <p><b>Massa atom:</b> 20,180 u</p>
-              <p><b>Golongan:</b> 18</p>
-              <p>
-                Gas mulia yang dapat menghasilkan cahaya merah-oranye
-                pada lampu pelepasan gas tertentu.
-              </p>
-            </div>
-          </details>
-
-          <details class="element element-alkali">
-            <summary>
-              <span class="atomic-number">11</span>
-              <span class="element-symbol">Na</span>
-              <span class="element-name">Natrium</span>
-            </summary>
-            <div class="element-info">
-              <h3>Na — Natrium</h3>
-              <p><b>Nomor atom:</b> 11</p>
-              <p><b>Massa atom:</b> 22,990 u</p>
-              <p><b>Golongan:</b> 1</p>
-              <p>
-                Logam sangat reaktif. Senyawa natrium klorida (NaCl)
-                dikenal sebagai garam dapur.
-              </p>
-            </div>
-          </details>
-
-          <details class="element element-alkaline">
-            <summary>
-              <span class="atomic-number">12</span>
-              <span class="element-symbol">Mg</span>
-              <span class="element-name">Magnesium</span>
-            </summary>
-            <div class="element-info">
-              <h3>Mg — Magnesium</h3>
-              <p><b>Nomor atom:</b> 12</p>
-              <p><b>Massa atom:</b> 24,305 u</p>
-              <p><b>Golongan:</b> 2</p>
-              <p>
-                Logam ringan yang digunakan dalam paduan logam
-                dan memiliki peran penting dalam proses biologis.
-              </p>
-            </div>
-          </details>
-
-        </div>
-
-        <p class="periodic-note">
-          <span class="note-dot"></span>
-          Klik simbol unsur untuk membuka penjelasan.
-          Klik kembali untuk menutupnya.
-        </p>
-      </div>
-    </section>
-
-    <!-- Materi Mandiri 3: Reaksi Kimia -->
-    <section class="section format-section" id="reaksi-kimia">
-      <div class="container format-grid">
-
-        <div class="format-content">
-          <span class="section-label">MATERI 03</span>
-
-          <h2>Memahami <span>Reaksi Kimia.</span></h2>
-
-          <p>
-            Reaksi kimia merupakan proses perubahan satu atau lebih
-            zat menjadi zat baru. Dalam proses ini, atom-atom tidak
-            diciptakan atau dimusnahkan, tetapi mengalami penataan
-            ulang melalui pemutusan dan pembentukan ikatan kimia.
-          </p>
-
-          <p>
-            Zat yang bereaksi disebut pereaksi atau reaktan,
-            sedangkan zat yang terbentuk disebut produk atau hasil reaksi.
-          </p>
-
-          <div class="formula-card">
-            <span class="formula-label">CONTOH PERSAMAAN REAKSI</span>
-
-            <div class="formula">
-              2H<sub>2</sub> + O<sub>2</sub> → 2H<sub>2</sub>O
-            </div>
-
-            <p>
-              Hidrogen bereaksi dengan oksigen menghasilkan air.
-              Jumlah atom hidrogen dan oksigen seimbang pada kedua sisi.
-            </p>
-          </div>
-
-          <h3>Ciri-Ciri Reaksi Kimia</h3>
-
-          <p>
-            Beberapa tanda yang dapat diamati antara lain perubahan
-            warna, terbentuknya gas, munculnya endapan, perubahan suhu,
-            atau timbulnya cahaya. Tanda-tanda tersebut perlu
-            ditafsirkan bersama bukti lain untuk memastikan terjadinya
-            reaksi kimia.
-          </p>
-        </div>
-
-        <div class="concept-panel">
-          <h3>Jenis Reaksi Kimia</h3>
-
-          <div class="concept-row">
-            <span class="concept-bullet">01</span>
-            <p>
-              <strong>Sintesis</strong> — dua atau lebih zat bergabung
-              membentuk satu produk.
-              <br>
-              <code>2H₂ + O₂ → 2H₂O</code>
-            </p>
-          </div>
-
-          <div class="concept-row">
-            <span class="concept-bullet">02</span>
-            <p>
-              <strong>Dekomposisi</strong> — satu senyawa terurai
-              menjadi dua atau lebih zat.
-              <br>
-              <code>CaCO₃ → CaO + CO₂</code>
-            </p>
-          </div>
-
-          <div class="concept-row">
-            <span class="concept-bullet">03</span>
-            <p>
-              <strong>Penggantian tunggal</strong> — satu unsur
-              menggantikan unsur lain dalam suatu senyawa.
-              <br>
-              <code>Zn + 2HCl → ZnCl₂ + H₂</code>
-            </p>
-          </div>
-
-          <div class="concept-row">
-            <span class="concept-bullet">04</span>
-            <p>
-              <strong>Pertukaran ganda</strong> — dua senyawa
-              bertukar pasangan ion.
-              <br>
-              <code>AgNO₃ + NaCl → AgCl + NaNO₃</code>
-            </p>
-          </div>
-
-          <h3>Hukum Kekekalan Massa</h3>
-
-          <p>
-            Dalam sistem tertutup, massa total pereaksi sama dengan
-            massa total produk. Prinsip ini menjadi dasar penting
-            dalam penyetaraan persamaan reaksi kimia.
-          </p>
-
-          <p class="format-example">
-            Saat menyetarakan persamaan reaksi, ubah koefisien
-            di depan rumus kimia, bukan angka indeks dalam rumusnya.
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-
-
-<!-- DUNIA LABORATORIUM -->
-<section class="section gallery-section" id="galeri">
-  <div class="section-header">
-    <span class="section-label">JELAJAHI SAINS</span>
-    <h2>Dunia Laboratorium</h2>
-    <p>
-      Kenali pengamatan ilmiah, peralatan laboratorium,
-      dan eksperimen sederhana untuk memahami kimia.
-    </p>
-  </div>
-
-  <div class="lab-container">
-
-    <!-- Pilihan tab menggunakan HTML saja -->
-    <input type="radio" name="lab-tab" id="lab-pengamatan"
-      class="lab-radio" checked>
-
-    <input type="radio" name="lab-tab" id="lab-peralatan"
-      class="lab-radio">
-
-    <input type="radio" name="lab-tab" id="lab-eksperimen"
-      class="lab-radio">
-
-    <div class="lab-tabs">
-      <label for="lab-pengamatan" class="lab-tab">
-        <i class="fas fa-eye"></i>
-        <span>Pengamatan</span>
-      </label>
-
-      <label for="lab-peralatan" class="lab-tab">
-        <i class="fas fa-flask"></i>
-        <span>Peralatan</span>
-      </label>
-
-      <label for="lab-eksperimen" class="lab-tab">
-        <i class="fas fa-atom"></i>
-        <span>Eksperimen</span>
-      </label>
-    </div>
-
-    <div class="lab-content">
-
-      <!-- PENGAMATAN -->
-      <div class="lab-panel panel-pengamatan">
-        <div class="lab-panel-heading">
-          <span class="lab-icon">
-            <i class="fas fa-eye"></i>
-          </span>
-          <div>
-            <h3>Pengamatan Ilmiah</h3>
-            <p>Kenali tanda-tanda perubahan kimia.</p>
-          </div>
-        </div>
-
-        <div class="lab-info-grid">
-          <article class="lab-info-item">
-            <i class="fas fa-palette"></i>
-            <div>
-              <h4>Perubahan Warna</h4>
-              <p>Warna zat berubah setelah bereaksi dengan zat lain.</p>
-            </div>
-          </article>
-
-          <article class="lab-info-item">
-            <i class="fas fa-circle-nodes"></i>
-            <div>
-              <h4>Gelembung Gas</h4>
-              <p>Gelembung dapat menandakan terbentuknya gas dalam reaksi.</p>
-            </div>
-          </article>
-
-          <article class="lab-info-item">
-            <i class="fas fa-temperature-half"></i>
-            <div>
-              <h4>Perubahan Suhu</h4>
-              <p>Suhu campuran dapat meningkat atau menurun.</p>
-            </div>
-          </article>
-
-          <article class="lab-info-item">
-            <i class="fas fa-vial"></i>
-            <div>
-              <h4>Terbentuk Endapan</h4>
-              <p>Padatan dapat terbentuk ketika larutan tertentu dicampurkan.</p>
-            </div>
-          </article>
-        </div>
-
-        <div class="lab-tip">
-          <i class="fas fa-lightbulb"></i>
-          <p>
-            <strong>Contoh:</strong>
-            indikator kol ungu dapat berubah warna ketika
-            dicampurkan dengan larutan asam atau basa.
-          </p>
-        </div>
-      </div>
-
-      <!-- PERALATAN -->
-      <div class="lab-panel panel-peralatan">
-        <div class="lab-panel-heading">
-          <span class="lab-icon">
-            <i class="fas fa-flask"></i>
-          </span>
-          <div>
-            <h3>Peralatan Laboratorium</h3>
-            <p>Kenali alat laboratorium beserta fungsinya.</p>
-          </div>
-        </div>
-
-        <div class="lab-equipment-list">
-          <article class="lab-equipment">
-            <span class="equipment-number">01</span>
-            <div>
-              <h4>Gelas Beker</h4>
-              <p>Menampung dan mencampur larutan.</p>
-            </div>
-          </article>
-
-          <article class="lab-equipment">
-            <span class="equipment-number">02</span>
-            <div>
-              <h4>Tabung Reaksi</h4>
-              <p>Melakukan reaksi kimia dalam skala kecil.</p>
-            </div>
-          </article>
-
-          <article class="lab-equipment">
-            <span class="equipment-number">03</span>
-            <div>
-              <h4>Gelas Ukur</h4>
-              <p>Mengukur volume cairan.</p>
-            </div>
-          </article>
-
-          <article class="lab-equipment">
-            <span class="equipment-number">04</span>
-            <div>
-              <h4>Pipet Tetes</h4>
-              <p>Memindahkan cairan sedikit demi sedikit.</p>
-            </div>
-          </article>
-
-          <article class="lab-equipment">
-            <span class="equipment-number">05</span>
-            <div>
-              <h4>Neraca Digital</h4>
-              <p>Mengukur massa bahan.</p>
-            </div>
-          </article>
-
-          <article class="lab-equipment">
-            <span class="equipment-number">06</span>
-            <div>
-              <h4>Mikroskop</h4>
-              <p>Mengamati objek berukuran sangat kecil.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-
-      <!-- EKSPERIMEN -->
-      <div class="lab-panel panel-eksperimen">
-        <div class="lab-panel-heading">
-          <span class="lab-icon">
-            <i class="fas fa-atom"></i>
-          </span>
-          <div>
-            <h3>Eksplorasi Sains</h3>
-            <p>Contoh eksperimen sederhana untuk belajar kimia.</p>
-          </div>
-        </div>
-
-        <div class="lab-experiment-list">
-          <article class="lab-experiment">
-            <span class="experiment-tag">EKSPERIMEN 01</span>
-            <h4>Indikator Kol Ungu</h4>
-            <p>
-              Amati perubahan warna ekstrak kol ungu saat
-              diuji dengan larutan asam atau basa yang aman.
-            </p>
-            <div class="experiment-result">
-              <i class="fas fa-search"></i>
-              Fokus: perubahan warna.
-            </div>
-          </article>
-
-          <article class="lab-experiment">
-            <span class="experiment-tag">EKSPERIMEN 02</span>
-            <h4>Pelarutan Gula</h4>
-            <p>
-              Bandingkan waktu larut gula dalam air bersuhu
-              berbeda dengan jumlah bahan yang sama.
-            </p>
-            <div class="experiment-result">
-              <i class="fas fa-search"></i>
-              Fokus: kecepatan pelarutan.
-            </div>
-          </article>
-
-          <article class="lab-experiment">
-            <span class="experiment-tag">EKSPERIMEN 03</span>
-            <h4>Cuka dan Soda Kue</h4>
-            <p>
-              Amati gelembung gas ketika cuka dicampur dengan
-              soda kue dalam wadah terbuka.
-            </p>
-            <div class="experiment-result">
-              <i class="fas fa-search"></i>
-              Fokus: pembentukan gas.
-            </div>
-          </article>
-        </div>
-
-        <div class="lab-tip">
-          <i class="fas fa-shield-halved"></i>
-          <p>
-            <strong>Keselamatan:</strong>
-            gunakan bahan dalam jumlah kecil, hindari kontak
-            dengan mata, dan jangan menutup rapat wadah reaksi.
-            Lakukan eksperimen dengan pendampingan yang sesuai.
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-
-    <!-- Tabel jadwal -->
-    <section class="section schedule-section" id="jadwal">
       <div class="container">
 
         <div class="section-heading">
+
           <div>
-            <span class="section-label">AGENDA PEMBELAJARAN</span>
-            <h2>Contoh jadwal <span>praktikum.</span></h2>
+
+            <span class="section-label">DUNIA LABORATORIUM</span>
+
+            <h2>Sains dalam <span>pengamatan.</span></h2>
+
           </div>
 
           <p>
-            Contoh tabel HTML untuk menyajikan jadwal kegiatan
-            pembelajaran di laboratorium.
+
+            Laboratorium membantu kita menguji konsep melalui
+
+            pengamatan dan percobaan yang terarah.
+
           </p>
+
         </div>
 
-        <div class="table-wrap">
-          <table>
-            <caption>Jadwal Praktikum Kimia — Contoh</caption>
+        <div class="gallery-grid">
 
-            <thead>
-              <tr>
-                <th scope="col">No.</th>
-                <th scope="col">Hari</th>
-                <th scope="col">Kegiatan</th>
-                <th scope="col">Waktu</th>
-                <th scope="col">Tempat</th>
-              </tr>
-            </thead>
+          <figure class="gallery-card gallery-large">
 
-            <tbody>
-              <tr>
-                <td>01</td>
-                <td>Senin</td>
-                <td>Pengenalan alat laboratorium</td>
-                <td>08.00–09.30</td>
-                <td>Lab Kimia A</td>
-              </tr>
+            <img
 
-              <tr>
-                <td>02</td>
-                <td>Rabu</td>
-                <td>Pengukuran pH larutan</td>
-                <td>10.00–11.30</td>
-                <td>Lab Kimia A</td>
-              </tr>
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXEc-MwyHqZ3-gkyVdWQrna_BXD0HmEdVmETSTEhMqaQ&s=10"
 
-              <tr>
-                <td>03</td>
-                <td>Jumat</td>
-                <td>Reaksi asam dan basa</td>
-                <td>13.00–14.30</td>
-                <td>Lab Kimia B</td>
-              </tr>
-            </tbody>
-          </table>
+              alt="Peneliti sedang bekerja di laboratorium"
+
+              loading="lazy"
+
+            >
+
+            <figcaption>
+
+              <span>01</span>
+
+              Pengamatan ilmiah
+
+            </figcaption>
+
+          </figure>
+
+          <figure class="gallery-card">
+
+            <img
+
+              src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&q=85"
+
+              alt="Peralatan penelitian ilmiah"
+
+              loading="lazy"
+
+            >
+
+            <figcaption>
+
+              <span>02</span>
+
+              Peralatan laboratorium
+
+            </figcaption>
+
+          </figure>
+
+          <figure class="gallery-card">
+
+            <img
+
+              src="https://images.unsplash.com/photo-1518152006812-edab29b069ac?auto=format&fit=crop&w=800&q=85"
+
+              alt="Peralatan dan kegiatan penelitian"
+
+              loading="lazy"
+
+            >
+
+            <figcaption>
+
+              <span>03</span>
+
+              Eksplorasi sains
+
+            </figcaption>
+
+          </figure>
+
         </div>
-
-        <p class="table-note">
-          * Jadwal di atas merupakan contoh untuk demonstrasi tabel,
-          bukan jadwal resmi institusi pendidikan.
-        </p>
 
       </div>
+
     </section>
 
-    <!-- Kontak -->
-    <section class="section contact-section" id="kontak">
-      <div class="container contact-grid">
-
-        <div class="contact-content">
-          <span class="section-label">TETAP TERHUBUNG</span>
-
-          <h2>Punya pertanyaan tentang <span>kimia?</span></h2>
-
-          <p>
-            Gunakan formulir ini sebagai contoh tampilan halaman
-            kontak untuk website pembelajaran.
-          </p>
-
-          <div class="contact-detail">
-            <span class="contact-detail-icon">✉</span>
-            <div>
-              <strong>Informasi pembelajaran</strong>
-              <p>Temukan materi dan jelajahi topik kimia.</p>
-            </div>
-          </div>
-        </div>
-
-        <form class="contact-form" action="#kontak" method="get">
-          <label for="nama">Nama lengkap</label>
-          <input
-            type="text"
-            id="nama"
-            name="nama"
-            placeholder="Masukkan nama kamu"
-            required
-          >
-
-          <label for="email">Alamat email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="nama@email.com"
-            required
-          >
-
-          <label for="topik">Topik pertanyaan</label>
-          <select id="topik" name="topik">
-            <option value="materi">Materi pembelajaran</option>
-            <option value="unsur">Tabel periodik</option>
-            <option value="reaksi">Reaksi kimia</option>
-            <option value="praktikum">Praktikum kimia</option>
-            <option value="lainnya">Lainnya</option>
-          </select>
-
-          <label for="pesan">Pesan</label>
-          <textarea
-            id="pesan"
-            name="pesan"
-            rows="4"
-            placeholder="Tulis pertanyaan kamu..."
-            required
-          ></textarea>
-
-          <button type="submit" class="button button-primary">
-            Kirim Pesan <span>↗</span>
-          </button>
-
-          <p class="form-note">
-            Formulir ini hanya demonstrasi HTML dan belum mengirim
-            pesan ke server.
-          </p>
-        </form>
-
-      </div>
-    </section>
-
-  </main>
+    </main>
 
   <!-- Footer dan hak cipta -->
+
   <footer class="site-footer">
+
     <div class="container footer-main">
+
       <a href="#beranda" class="logo footer-logo">
+
         <span class="logo-icon">C</span>
+
         <span>Chemistry<span class="logo-light">Lab.</span></span>
+
       </a>
 
       <p>
+
         Ruang belajar untuk memahami kimia dengan cara
+
         yang lebih dekat dan menyenangkan.
+
       </p>
 
       <a href="#beranda" class="back-to-top">Kembali ke atas ↑</a>
+
     </div>
 
     <div class="container footer-bottom">
+
       <p>&copy; 2026 Chemistry Lab. Seluruh hak cipta dilindungi.</p>
+
       <p>Dibuat untuk pembelajaran Pendidikan Kimia.</p>
+
     </div>
+
   </footer>
 
 </body>
+
 </html>
